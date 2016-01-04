@@ -31,6 +31,7 @@ class Kernel extends AppKernel
         $dbConfig = $this->config['db'][$this->config['environment']];
         $GLOBALS['db'] = new PDO($dbConfig['dsn'], $dbConfig['username'], $dbConfig['password']);
         $GLOBALS['db']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $GLOBALS['db']->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         define('PREFIX', $dbConfig['prefix']);
         unset($dbConfig);
 
