@@ -1,0 +1,25 @@
+@import '../draper/scss/draper.scss';
+
+/*!
+ * Traq Lite
+ * Copyright (c) 2009-2016 Jack P.
+ * Copyright (c) 2012-2016 Traq.io
+ *
+ * Licensed under the BSD 3-clause license.
+ */
+
+body {
+    background: #e9e9e9;
+    color: #000;
+}
+
+main {
+    padding: 20px 0;
+    background: #fff;
+}
+
+#footer {
+    margin: 20px 0;
+}
+
+@import 'traq/header.scss';
