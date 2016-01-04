@@ -1,5 +1,6 @@
 # Traq
 /config/config.php
+/assets/css/traq.css
 
 # Dev tools
 /dev/node_modules

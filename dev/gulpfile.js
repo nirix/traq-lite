@@ -21,6 +21,11 @@ var makeCoffee = function() {
         .pipe(gulp.dest('../assets/js'));
 }
 
+gulp.task('compile', function(){
+    beSassy();
+    makeCoffee();
+});
+
 // Watch for changes
 gulp.task('watch', function(){
     watch('scss/*.scss', beSassy);
