@@ -1,0 +1,12 @@
+<div class="projects container">
+    <h1 class="page-header">Projects</h1>
+
+    <ul>
+    <?php foreach ($projects as $project) : ?>
+        <li>
+            <h2 class="project-name"><a href="<?=baseUrl($project['slug'])?>"><?=$project['name']?></a></h2>
+            <?=$project['description']?>
+        </li>
+    <?php endforeach ?>
+    </ul>
+</div>

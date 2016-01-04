@@ -1,0 +1,25 @@
+{
+    "name": "nirix/traq-lite",
+    "description": "Continuation of Traq 2",
+    "type": "project",
+    "license": "GPLv3",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Nirix",
+            "email": "nrx@nirix.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Traq\\": "src/"
+        }
+    },
+    "require": {
+        "nirix/unframework": "dev-master"
+    },
+    "require-dev": {
+        "filp/whoops": "^1.1"
+    }
+}

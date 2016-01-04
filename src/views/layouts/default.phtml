@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+
+        <link rel="stylesheet" href="<?=baseUrl('assets/css/traq.css')?>">
+    </head>
+    <body>
+        <header id="header">
+            <div class="container">
+            <?php if (currentProject()) : ?>
+                <a href="<?=projectUrl()?>" class="brand"><?=currentProject()['name']?></a>
+            <?php else : ?>
+                <a href="<?=baseUrl()?>" class="brand">Traq</a>
+            <?php endif ?>
+            </div>
+        </header>
+        <nav id="nav">
+            <div class="container">
+                <ul>
+                <?php if (currentProject()) : ?>
+                    <li class="<?=iif(Request::matches('/{pslug}/timeline'), 'active')?>"><a href="<?=projectUrl('/timeline')?>">Timeline</a></li>
+                    <li class="<?=iif(Request::matches('/{pslug}/tickets'), 'active')?>"><a href="<?=projectUrl('/tickets')?>">Tickets</a></li>
+                <?php else : ?>
+                    <li class="<?=iif(Request::matches('/'), 'active')?>"><a href="<?=baseUrl()?>">Projects</a></li>
+                <?php endif ?>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <?=$content?>
+        </main>
+
+        <footer id="footer">
+            <div class="container">
+                <?php if ($_ENV['environment'] === 'development') : ?>
+                <div class="text-muted pull-right">
+                    <?=round((microtime(true) - START_TIME), 2); ?>s, <?php echo round((memory_get_peak_usage() - START_MEM) / pow(1024, 2), 3)?>mb
+                </div>
+                <?php endif ?>
+                <div class="text-muted">Powered by Traq Lite v<?=Traq\Kernel::VERSION?> &copy 2009-<?=date("Y")?> Traq.io</div>
+            </div>
+        </footer>
+    </body>
+</html>

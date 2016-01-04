@@ -1,0 +1,18 @@
+<div class="tickets container">
+    <h1 class="page-header">Tickets</h1>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <th>ID</th>
+            <th>Summary</th>
+        </thead>
+        <tbody>
+        <?php foreach ($tickets as $ticket) : ?>
+            <tr>
+                <td><?=$ticket['ticket_id']?></td>
+                <td><?=e($ticket['summary'])?></td>
+            </tr>
+        <?php endforeach ?>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,9 @@
+# Traq
+/config/config.php
+
+# Composer
+/vendor
+
+# Misc.
+.DS_Store
+.htaccess
