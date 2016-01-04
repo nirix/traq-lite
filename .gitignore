@@ -3,6 +3,7 @@
 
 # Dev tools
 /dev/node_modules
+/dev/draper
 
 # Composer
 /vendor
