@@ -1,6 +1,9 @@
 # Traq
 /config/config.php
 
+# Dev tools
+/dev/node_modules
+
 # Composer
 /vendor
 
