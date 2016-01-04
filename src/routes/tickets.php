@@ -9,4 +9,4 @@
 
 $tickets = db()->prepare('SELECT * FROM '.PREFIX.'tickets WHERE project_id = ?');
 $tickets->execute([currentProject()['id']]);
-return render('tickets/show.phtml', ['tickets' => $tickets->fetchAll()]);
+return render('tickets/index.phtml', ['tickets' => $tickets->fetchAll()]);

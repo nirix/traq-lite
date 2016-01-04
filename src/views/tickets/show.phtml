@@ -1,18 +1,4 @@
-<div class="tickets container">
-    <h1 class="page-header"><?=t('tickets')?></h1>
-
-    <table class="table table-bordered table-striped table-hover">
-        <thead>
-            <th><?=t('id')?></th>
-            <th><?=t('summary')?></th>
-        </thead>
-        <tbody>
-        <?php foreach ($tickets as $ticket) : ?>
-            <tr>
-                <td><?=$ticket['ticket_id']?></td>
-                <td><?=e($ticket['summary'])?></td>
-            </tr>
-        <?php endforeach ?>
-        </tbody>
-    </table>
+<div class="ticket container">
+    <h1 class="page-header"><?=e($ticket['summary'])?></h1>
+    <?=e($ticket['body'])?>
 </div>
