@@ -11,6 +11,8 @@ namespace Traq;
 
 use PDO;
 use Unf\AppKernel;
+use Traq\Language;
+use Traq\Translations\EnglishAu;
 
 class Kernel extends AppKernel
 {
@@ -31,6 +33,9 @@ class Kernel extends AppKernel
         $GLOBALS['db']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         define('PREFIX', $dbConfig['prefix']);
         unset($dbConfig);
+
+        Language::register('EnglishAu', new EnglishAu);
+        Language::setCurrent('EnglishAu');
 
         require __DIR__ . '/common.php';
     }

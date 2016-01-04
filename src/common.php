@@ -9,6 +9,15 @@
 
 use Unf\View;
 use Unf\Request;
+use Traq\Language;
+
+// -----------------------------------------------------------------------------
+// Translations
+
+function t($string, $args = [])
+{
+    return Language::translate($string, $args);
+}
 
 // -----------------------------------------------------------------------------
 // Database

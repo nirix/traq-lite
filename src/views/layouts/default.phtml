@@ -20,10 +20,10 @@
             <div class="container">
                 <ul>
                 <?php if (currentProject()) : ?>
-                    <li class="<?=iif(Request::matches('/{pslug}/timeline'), 'active')?>"><a href="<?=projectUrl('/timeline')?>">Timeline</a></li>
-                    <li class="<?=iif(Request::matches('/{pslug}/tickets'), 'active')?>"><a href="<?=projectUrl('/tickets')?>">Tickets</a></li>
+                    <li class="<?=iif(Request::matches('/{pslug}/timeline'), 'active')?>"><a href="<?=projectUrl('/timeline')?>"><?=t('timeline')?></a></li>
+                    <li class="<?=iif(Request::matches('/{pslug}/tickets'), 'active')?>"><a href="<?=projectUrl('/tickets')?>"><?=t('tickets')?></a></li>
                 <?php else : ?>
-                    <li class="<?=iif(Request::matches('/'), 'active')?>"><a href="<?=baseUrl()?>">Projects</a></li>
+                    <li class="<?=iif(Request::matches('/'), 'active')?>"><a href="<?=baseUrl()?>"><?=t('projects')?></a></li>
                 <?php endif ?>
                 </ul>
             </div>
