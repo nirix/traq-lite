@@ -7,4 +7,8 @@
  * Licensed under the BSD 3-Clause license.
  */
 
+if (!currentProject()) {
+    return show404();
+}
+
 return render('projects/show.phtml', ['project' => currentProject()]);
