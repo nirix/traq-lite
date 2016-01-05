@@ -1,0 +1,29 @@
+<div class="login container">
+    <h1 class="page-header"><?=t('login')?></h1>
+
+    <form action="<?=baseUrl('/login')?>" method="post" class="form-tabular col-span-6 col-offset-3">
+        <?php if (isset($error) && $error) : ?>
+        <div class="alert alert-danger">
+            <?=t('errors.invalid_username_or_password')?>
+        </div>
+        <?php endif ?>
+
+        <div class="form-group">
+            <label for="username" class="control-label col-span-3"><?=t('username')?></label>
+            <div class="col col-span-9">
+                <input type="text" name="username" id="username" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="control-label col-span-3"><?=t('password')?></label>
+            <div class="col col-span-9">
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-actions text-center">
+            <button class="btn btn-success"><?=t('login')?></button>
+        </div>
+    </form>
+</div>
