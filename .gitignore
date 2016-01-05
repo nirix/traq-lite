@@ -1,6 +1,7 @@
 # Traq
 /config/config.php
 /assets/css/traq.css
+/assets/css/traq.css.map
 
 # Dev tools
 /dev/node_modules
