@@ -10,6 +10,7 @@
 use Unf\View;
 use Unf\Request;
 use Traq\Language;
+use Traq\Models\Model;
 
 // -----------------------------------------------------------------------------
 // Translations
@@ -47,6 +48,49 @@ function baseUrl($append = null)
 function projectUrl($append = null)
 {
     return baseUrl(currentProject()['slug']) . rtrim('/' . ltrim($append, '/'), '/');
+}
+
+function redirect($path)
+{
+    header('Location: ' . baseUrl($path));
+    exit;
+}
+
+// -----------------------------------------------------------------------------
+// Errors
+
+function errorMessagesFor(Model $model)
+{
+    if (!count($model->errors)) {
+        return;
+    }
+
+    $messages = [];
+
+    foreach ($model->errors as $field => $errors) {
+        foreach ($errors as $error) {
+            $error['field'] = t($error['field']);
+            $messages[] = t('errors.validation.' . $error['error'], $error);
+        }
+    }
+
+    return view('errors/_messages_for.phtml', ['messages' => $messages]);
+}
+
+function errorMessageFor(Model $model, $field)
+{
+    if (!$model->hasError($field)) {
+        return;
+    }
+
+    $error = $model->getError($field);
+    $error['field'] = t($error['field']);
+    return t('errors.validation.' . $error['error'], $error);
+
+    // dd($model->getError($field));
+    // exit;
+
+    // return t('errors.validation.' . $error, $options);
 }
 
 // -----------------------------------------------------------------------------

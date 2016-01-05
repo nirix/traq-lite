@@ -22,6 +22,10 @@ class EnglishAu extends Translation
 
         // Ticket properties
         'id'      => 'ID',
-        'summary' => 'Summary'
+        'summary' => 'Summary',
+        // Errors
+        'errors.validation.required'  => '{field} is required',
+        'errors.validation.minLength' => '{field} must at least {length} characters long',
+        'errors.validation.email'     => '{field} is not a valid email address',
     ];
 }
