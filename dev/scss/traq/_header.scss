@@ -1,3 +1,6 @@
+// -----------------------------------------------------------------------------
+// Header
+
 #header {
     background: #3478AA;
     color: #fff;
@@ -15,26 +18,44 @@
     }
 }
 
-#nav {
-    background: #3478AA;
-    color: #fff;
-    height: 22px;
+// -----------------------------------------------------------------------------
+// Nav and meta-nav
+
+#header,
+#nav,
+#meta-nav {
+    a {
+        transition: none;
+    }
+}
+
+#nav,
+#meta-nav {
+    a:link,
+    a:visited,
+    a:active {
+        color: #fff;
+        text-decoration: none;
+    }
 
     > .container > ul {
         list-style: none;
         margin: 0;
         padding: 0;
+    }
+}
 
+// -----------------------------------------------------------------------------
+// Nav
+
+#nav {
+    background: #3478AA;
+    color: #fff;
+    height: 21px;
+
+    > .container > ul {
         & > li {
             display: inline;
-
-            a:link,
-            a:visited,
-            a:active {
-                color: #fff;
-                padding: 4px 10px;
-                text-decoration: none;
-            }
 
             a:hover,
             &.active a:link,
@@ -43,6 +64,41 @@
                 background: #fff;
                 color: #000;
             }
+
+            a {
+                padding: 4px 10px;
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Meta-nav
+
+#meta-nav {
+    color: #fff;
+    background: #265f98;
+    height: 29px;
+
+    > .container > ul {
+        float: left;
+
+        &.pull-right {
+            float: right;
+        }
+
+        > li {
+            float: left;
+
+            a {
+                display: inline-block;
+                padding: 6px 6px;
+            }
+        }
+
+        > li a:hover,
+        > li.active a {
+            text-decoration: underline;
         }
     }
 }
