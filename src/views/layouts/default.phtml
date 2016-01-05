@@ -7,6 +7,18 @@
         <link rel="stylesheet" href="<?=baseUrl('assets/css/traq.css')?>">
     </head>
     <body>
+        <div id="meta-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="<?=baseUrl('/')?>">Traq</a></li>
+                </ul>
+
+                <ul class="pull-right">
+                    <li><a href="<?=baseUrl('/login')?>"><?=t('login')?></a></li>
+                    <li class="<?=iif(Request::matches('/register'), 'active')?>"><a href="<?=baseUrl('/register')?>"><?=t('register')?></a></li>
+                </ul>
+            </div>
+        </div>
         <header id="header">
             <div class="container">
             <?php if (currentProject()) : ?>

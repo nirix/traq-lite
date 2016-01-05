@@ -16,6 +16,8 @@ class EnglishAu extends Translation
     protected static $name = 'English';
     protected static $locale = 'en_AU';
     protected static $strings = [
+        'login'    => 'Login',
+        'register' => 'Register',
         'projects' => 'Projects',
         'timeline' => 'Timeline',
         'tickets'  => 'Tickets',
