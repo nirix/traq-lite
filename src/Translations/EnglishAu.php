@@ -22,9 +22,18 @@ class EnglishAu extends Translation
         'timeline' => 'Timeline',
         'tickets'  => 'Tickets',
 
+        // Users
+        'username' => 'Username',
+        'password' => 'Password',
+        'email'    => 'Email',
+
         // Ticket properties
         'id'      => 'ID',
         'summary' => 'Summary',
+
+        // Forms
+        'create_account' => 'Create Account',
+
         // Errors
         'errors.validation.required'  => '{field} is required',
         'errors.validation.minLength' => '{field} must at least {length} characters long',
