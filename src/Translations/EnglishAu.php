@@ -38,5 +38,6 @@ class EnglishAu extends Translation
         'errors.validation.required'  => '{field} is required',
         'errors.validation.minLength' => '{field} must at least {length} characters long',
         'errors.validation.email'     => '{field} is not a valid email address',
+        'errors.validation.unique'    => '{field} is already in use',
     ];
 }
