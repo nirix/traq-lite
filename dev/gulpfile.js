@@ -1,16 +1,15 @@
-var gulp   = require('gulp')
-    watch  = require('gulp-watch'),
-    sass   = require('gulp-sass'),
-    coffee = require('gulp-coffee'),
-    concat = require('gulp-concat'),
-    path   = require('path');
+var gulp       = require('gulp')
+    watch      = require('gulp-watch'),
+    sass       = require('gulp-sass'),
+    coffee     = require('gulp-coffee'),
+    concat     = require('gulp-concat'),
+    sourcemaps = require('gulp-sourcemaps')
+    path       = require('path');
 
 var beSassy = function() {
     console.log('Being Sassy');
 
-    gulp.src([
-        './scss/traq.scss'
-    ])
+    gulp.src(['./scss/traq.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('../assets/css'));
 }
@@ -22,7 +21,12 @@ var makeCoffee = function() {
 }
 
 gulp.task('compile', function(){
-    beSassy();
+    gulp.src(['./scss/traq.scss'])
+    .pipe(sourcemaps.init())
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('../assets/css'));
+
     makeCoffee();
 });
 
