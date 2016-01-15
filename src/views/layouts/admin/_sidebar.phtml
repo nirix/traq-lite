@@ -1,0 +1,22 @@
+<div class="sidebar-wrapper sidebar-expanded">
+    <a href="<?=baseUrl('/admin')?>" class="sidebar-brand" title="<?=t('dashboard')?>" data-placement="bottom">
+        <span class="product-name">Traq Lite</span>
+        <span class="product-version">v<?=Traq\Kernel::VERSION?></span>
+    </a>
+
+    <ul class="nav nav-sidebar">
+        <li>
+            <a href="<?=baseUrl()?>"><span class="fa fa-home"></span> <?=t('view_site')?></a>
+        </li>
+        <li class="divider"></li>
+        <li class="<?=iif(Request::matches('/admin/projects.*'), 'active')?>">
+            <a href="<?=baseUrl('/admin/projects')?>"><span class="fa fa-folder"></span> <?=t('projects')?></a>
+        </li>
+        <li class="<?=iif(Request::matches('/admin/milestones.*'), 'active')?>">
+            <a href="<?=baseUrl('/admin/milestones')?>"><span class="fa fa-map-signs"></span> <?=t('milestones')?></a>
+        </li>
+        <li class="<?=iif(Request::matches('/admin/users.*'), 'active')?>">
+            <a href="<?=baseUrl('/admin/users')?>"><span class="fa fa-users"></span> <?=t('users')?></a>
+        </li>
+    </ul>
+</div>
