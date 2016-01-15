@@ -110,6 +110,15 @@ function render($view, array $locals = [])
     return view("layouts/{$locals['_layout']}", ['content' => view($view, $locals)]);
 }
 
+function renderAdmin($view, array $locals = [])
+{
+    $locals = $locals + [
+        '_layout' => 'admin.phtml'
+    ];
+
+    return render("admin/{$view}", $locals);
+}
+
 function view($view, array $locals = [])
 {
     return View::render($view, $locals);
