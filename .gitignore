@@ -1,7 +1,6 @@
 # Traq
 /config/config.php
-/assets/css/traq.css
-/assets/css/traq.css.map
+/assets
 
 # Dev tools
 /dev/node_modules
@@ -13,3 +12,4 @@
 # Misc.
 .DS_Store
 .htaccess
+.phpintel
