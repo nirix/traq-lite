@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b3c9131861a3707539211dc288a8c9d4",
-    "content-hash": "6b9b57cfd05fe228c34e1f8be1592e40",
+    "hash": "2db1c82601b26c3a09387a950ee78587",
+    "content-hash": "0911cc83c14d5bfe034bddda897ab275",
     "packages": [
         {
             "name": "nirix/unframework",
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nirix/unframework.git",
-                "reference": "073477d96423277f5719890cdd56411133db00e5"
+                "reference": "144335651692e5ee584ef7b7067fabcdbf7cbeec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nirix/unframework/zipball/073477d96423277f5719890cdd56411133db00e5",
-                "reference": "073477d96423277f5719890cdd56411133db00e5",
+                "url": "https://api.github.com/repos/nirix/unframework/zipball/144335651692e5ee584ef7b7067fabcdbf7cbeec",
+                "reference": "144335651692e5ee584ef7b7067fabcdbf7cbeec",
                 "shasum": ""
             },
             "require-dev": {
@@ -44,7 +44,7 @@
                 "routing",
                 "templating"
             ],
-            "time": "2015-12-15 22:21:27"
+            "time": "2016-01-09 14:31:07"
         }
     ],
     "packages-dev": [
