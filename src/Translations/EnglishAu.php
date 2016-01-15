@@ -16,23 +16,42 @@ class EnglishAu extends Translation
     protected static $name = 'English';
     protected static $locale = 'en_AU';
     protected static $strings = [
-        'login'    => 'Login',
-        'register' => 'Register',
-        'projects' => 'Projects',
-        'timeline' => 'Timeline',
-        'tickets'  => 'Tickets',
+        'login'       => 'Login',
+        'register'    => 'Register',
+        'timeline'    => 'Timeline',
+        'tickets'     => 'Tickets',
+        'description' => 'Description',
+        'edit'        => 'Edit',
+        'delete'      => 'Delete',
+        'dashboard'   => 'Dashboard',
+
+        // Admin
+        'view_site' => 'View Site',
 
         // Users
-        'username' => 'Username',
-        'password' => 'Password',
-        'email'    => 'Email',
+        'users'          => 'Users',
+        'username'       => 'Username',
+        'password'       => 'Password',
+        'email'          => 'Email',
+        'create_account' => 'Create Account',
+
+        // Projects
+        'projects'       => 'Projects',
+        'new_project'    => 'New Project',
+        'create_project' => 'Create Project',
+        'edit_project'   => 'Edit Project',
+        'name'           => 'Name',
+        'slug'           => 'Slug',
 
         // Ticket properties
         'id'      => 'ID',
         'summary' => 'Summary',
 
-        // Forms
-        'create_account' => 'Create Account',
+        // Milestones
+        'milestones' => 'Milestones',
+
+        // Help
+        'help.slug' => 'The URL friendly version of the project name.',
 
         // Errors
         'errors.validation.required'  => '{field} is required',
