@@ -12,16 +12,26 @@
         <script src="<?=baseUrl('assets/js/traq.js')?>"></script>
     </head>
     <body>
-        <div id="meta-nav">
+        <div class="navbar navbar-static-top navbar-inverse">
             <div class="container">
-                <ul>
-                    <li><a href="<?=baseUrl('/')?>">Traq</a></li>
-                </ul>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="<?=baseUrl('/')?>">Traq</a></li>
+                    </ul>
 
-                <ul class="pull-right">
-                    <li class="<?=iif(Request::matches('/login'), 'active')?>"><a href="<?=baseUrl('/login')?>"><?=t('login')?></a></li>
-                    <li class="<?=iif(Request::matches('/register'), 'active')?>"><a href="<?=baseUrl('/register')?>"><?=t('register')?></a></li>
-                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                    <?php if (currentUser()) : ?>
+                        <?php if (currentUser()->isAdmin()) : ?>
+                            <li><a href="<?=baseUrl('/admin')?>" title="<?=t('admincp')?>" data-placement="bottom"><span class="fa fa-cog"></span></a></li>
+                        <?php endif ?>
+                        <li><a href="<?=baseUrl('/profile')?>" title="<?=t('profile')?>" data-placement="bottom"><span class="fa fa-user"></span></a></li>
+                        <li><a href="<?=baseUrl('/logout')?>" title="<?=t('logout')?>" data-placement="bottom"><span class="fa fa-sign-out"></span></a></li>
+                    <?php else : ?>
+                        <li class="<?=iif(Request::matches('/login'), 'active')?>"><a href="<?=baseUrl('/login')?>"><?=t('login')?></a></li>
+                        <li class="<?=iif(Request::matches('/register'), 'active')?>"><a href="<?=baseUrl('/register')?>"><?=t('register')?></a></li>
+                    <?php endif ?>
+                    </ul>
+                </div>
             </div>
         </div>
         <header id="header">
