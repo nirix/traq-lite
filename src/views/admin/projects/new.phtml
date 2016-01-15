@@ -1,0 +1,10 @@
+<div class="projects new container-fluid">
+    <h1 class="page-header"><?=t('new_project')?></h1>
+
+    <form action="<?=baseUrl('/admin/projects/new')?>" method="post" class="form-horizontal">
+        <?=view('admin/projects/_form.phtml', ['project' => $project])?>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success"><?=t('create_project')?></button>
+        </div>
+    </form>
+</div>

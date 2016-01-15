@@ -18,6 +18,14 @@ class User extends Model
     ];
 
     // -------------------------------------------------------------------------
+    // Permissions
+
+    public function isAdmin()
+    {
+        return $this['is_admin'] == '1' ? true : false;
+    }
+
+    // -------------------------------------------------------------------------
     // Validation
 
     public function validate()

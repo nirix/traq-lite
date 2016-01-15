@@ -1,0 +1,29 @@
+<div class="form-group <?=iif($project->hasError('name'), 'has-error')?>">
+    <label for="name" class="control-label col-md-2"><?=t('name')?></label>
+    <div class="col-md-10">
+        <input type="text" name="name" id="name" class="form-control" value="<?=$project['name']?>">
+        <?php if ($project->hasError('name')) : ?>
+            <div class="help-block"><?=errorMessageFor($project, 'name')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group <?=iif($project->hasError('slug'), 'has-error')?>">
+    <label for="slug" class="control-label col-md-2"><?=t('slug')?></label>
+    <div class="col-md-10">
+        <input type="text" name="slug" id="slug" class="form-control" value="<?=$project['slug']?>">
+        <div class="help-block">
+            <?=t('help.slug')?>
+        </div>
+        <?php if ($project->hasError('slug')) : ?>
+            <div class="help-block"><?=errorMessageFor($project, 'slug')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="description" class="control-label col-md-2"><?=t('description')?></label>
+    <div class="col-md-10">
+        <textarea name="description" id="description" class="form-control"><?=$project['description']?></textarea>
+    </div>
+</div>
