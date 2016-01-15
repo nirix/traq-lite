@@ -9,16 +9,16 @@
 
 namespace Traq\Models;
 
-use ArrayAccess;
+use Unf\ParameterBag;
 
-abstract class Model implements ArrayAccess
+abstract class Model extends ParameterBag
 {
     protected $validations = [];
     public $errors = [];
 
     public function __construct(array $data = [])
     {
-        $this->data = $data;
+        $this->properties = $data;
     }
 
     // -------------------------------------------------------------------------
@@ -70,28 +70,5 @@ abstract class Model implements ArrayAccess
         }
 
         return !count($this->errors);
-    }
-
-    // -------------------------------------------------------------------------
-    // ArrayAccess
-
-    public function offsetExists($offset)
-    {
-        return isset($this->data[$offset]);
-    }
-
-    public function offsetGet($offset)
-    {
-        return isset($this->data[$offset]) ? $this->data[$offset] : null;
-    }
-
-    public function offsetSet($offset, $value)
-    {
-        $this->data[$offset] = $value;
-    }
-
-    public function offsetUnset($offset)
-    {
-        unset($this->data[$offset]);
     }
 }
