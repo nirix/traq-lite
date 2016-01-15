@@ -11,10 +11,17 @@ use Unf\View;
 use Unf\Request;
 use Traq\Language;
 use Traq\Models\Model;
+use Traq\Models\User;
 
 // -----------------------------------------------------------------------------
 // Translations
 
+/**
+ * @param string $string
+ * @param array  $args
+ *
+ * @return string
+ */
 function t($string, $args = [])
 {
     return Language::translate($string, $args);
@@ -23,6 +30,9 @@ function t($string, $args = [])
 // -----------------------------------------------------------------------------
 // Database
 
+/**
+ * @return PDO
+ */
 function db()
 {
     return $GLOBALS['db'];
@@ -31,6 +41,9 @@ function db()
 // -----------------------------------------------------------------------------
 // Users
 
+/**
+ * @return User
+ */
 function currentUser()
 {
     return isset($GLOBALS['current_user']) ? $GLOBALS['current_user'] : false;
@@ -39,6 +52,9 @@ function currentUser()
 // -----------------------------------------------------------------------------
 // Projects
 
+/**
+ * @return array
+ */
 function currentProject()
 {
     $project = db()->prepare('SELECT * FROM '.PREFIX.'projects WHERE slug = ? LIMIT 1');
@@ -48,16 +64,29 @@ function currentProject()
 // -----------------------------------------------------------------------------
 // URLs
 
+/**
+ * @param string $append
+ *
+ * @return string
+ */
 function baseUrl($append = null)
 {
     return Request::$basePath . rtrim('/' . ltrim($append, '/'), '/');
 }
 
+/**
+ * @param string $append
+ *
+ * @return string
+ */
 function projectUrl($append = null)
 {
     return baseUrl(currentProject()['slug']) . rtrim('/' . ltrim($append, '/'), '/');
 }
 
+/**
+ * @param string $path
+ */
 function redirect($path)
 {
     header('Location: ' . baseUrl($path));
@@ -67,6 +96,11 @@ function redirect($path)
 // -----------------------------------------------------------------------------
 // Errors
 
+/**
+ * @param Model $model
+ *
+ * @return string
+ */
 function errorMessagesFor(Model $model)
 {
     if (!count($model->errors)) {
@@ -85,6 +119,12 @@ function errorMessagesFor(Model $model)
     return view('errors/_messages_for.phtml', ['messages' => $messages]);
 }
 
+/**
+ * @param Model  $model
+ * @param string $field
+ *
+ * @return string
+ */
 function errorMessageFor(Model $model, $field)
 {
     if (!$model->hasError($field)) {
@@ -94,26 +134,33 @@ function errorMessageFor(Model $model, $field)
     $error = $model->getError($field);
     $error['field'] = t($error['field']);
     return t('errors.validation.' . $error['error'], $error);
-
-    // dd($model->getError($field));
-    // exit;
-
-    // return t('errors.validation.' . $error, $options);
 }
 
 // -----------------------------------------------------------------------------
 // Views
 
+/**
+ * @return string
+ */
 function show404()
 {
     return render('errors/404.phtml');
 }
 
+/**
+ * @return string
+ */
 function show403()
 {
     return render('errors/403.phtml');
 }
 
+/**
+ * @param string $view
+ * @param array  $locals
+ *
+ * @return string
+ */
 function render($view, array $locals = [])
 {
     $locals = $locals + [
@@ -123,6 +170,12 @@ function render($view, array $locals = [])
     return view("layouts/{$locals['_layout']}", ['content' => view($view, $locals)]);
 }
 
+/**
+ * @param string $view
+ * @param array  $locals
+ *
+ * @return string
+ */
 function renderAdmin($view, array $locals = [])
 {
     $locals = $locals + [
@@ -132,11 +185,24 @@ function renderAdmin($view, array $locals = [])
     return render("admin/{$view}", $locals);
 }
 
+/**
+ * @param string $view
+ * @param array  $locals
+ *
+ * @return string
+ */
 function view($view, array $locals = [])
 {
     return View::render($view, $locals);
 }
 
+/**
+ * Escape HTML.
+ *
+ * @param string $string
+ *
+ * @return string
+ */
 function e($string)
 {
     return htmlspecialchars($string);
@@ -145,6 +211,13 @@ function e($string)
 // -----------------------------------------------------------------------------
 // Misc.
 
+/**
+ * @param boolean $cond
+ * @param mixed   $true
+ * @param mixed   $false
+ *
+ * @return mixed
+ */
 function iif($cond, $true, $false = null)
 {
     return $cond ? $true : $false;
