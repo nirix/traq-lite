@@ -29,6 +29,14 @@ function db()
 }
 
 // -----------------------------------------------------------------------------
+// Users
+
+function currentUser()
+{
+    return isset($GLOBALS['current_user']) ? $GLOBALS['current_user'] : false;
+}
+
+// -----------------------------------------------------------------------------
 // Projects
 
 function currentProject()

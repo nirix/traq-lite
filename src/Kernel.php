@@ -12,6 +12,7 @@ namespace Traq;
 use PDO;
 use Unf\AppKernel;
 use Traq\Language;
+use Traq\Models\User;
 use Traq\Translations\EnglishAu;
 
 class Kernel extends AppKernel
@@ -39,5 +40,28 @@ class Kernel extends AppKernel
         Language::setCurrent('EnglishAu');
 
         require __DIR__ . '/common.php';
+
+        $this->getCurrentUser();
+    }
+
+    protected function getCurrentUser()
+    {
+        if (isset($_COOKIE['traq'])) {
+            $query = $GLOBALS['db']->prepare('
+                SELECT u.*, g.is_admin, g.permissions
+                FROM '.PREFIX.'users u
+                LEFT JOIN '.PREFIX.'groups g ON g.id = u.group_id
+                WHERE session_hash = ? LIMIT 1
+            ');
+
+            $query->bindValue(1, $_COOKIE['traq']);
+            $query->execute();
+
+            $user = $query->fetch();
+
+            if ($user) {
+                $GLOBALS['current_user'] = new User($user);
+            }
+        }
     }
 }
