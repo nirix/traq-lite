@@ -10,7 +10,9 @@
 namespace Traq;
 
 use PDO;
+use Unf\Kernel as UnfKernel;
 use Unf\AppKernel;
+use Unf\Request;
 use Traq\Language;
 use Traq\Models\User;
 use Traq\Translations\EnglishAu;
@@ -62,6 +64,17 @@ class Kernel extends AppKernel
             if ($user) {
                 $GLOBALS['current_user'] = new User($user);
             }
+        }
+    }
+
+    public function run()
+    {
+        Request::init();
+
+        if (Request::seg(0) == 'admin' && !currentUser()->isAdmin()) {
+            return UnfKernel::process(show403());
+        } else {
+            return parent::run();
         }
     }
 }

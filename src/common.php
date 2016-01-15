@@ -109,6 +109,11 @@ function show404()
     return render('errors/404.phtml');
 }
 
+function show403()
+{
+    return render('errors/403.phtml');
+}
+
 function render($view, array $locals = [])
 {
     $locals = $locals + [
