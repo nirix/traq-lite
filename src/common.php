@@ -14,6 +14,30 @@ use Traq\Models\Model;
 use Traq\Models\User;
 
 // -----------------------------------------------------------------------------
+// Settings
+
+/**
+ * @param string $name
+ *
+ * @return string
+ */
+function setting($name)
+{
+    static $settings;
+
+    if (!$settings) {
+        $query = db()->query('SELECT name, value FROM '.PREFIX.'settings');
+        $query->execute();
+
+        foreach ($query->fetchAll() as $setting) {
+            $settings[$setting['name']] = $setting['value'];
+        }
+    }
+
+    return $settings[$name];
+}
+
+// -----------------------------------------------------------------------------
 // Translations
 
 /**

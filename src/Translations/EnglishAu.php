@@ -18,7 +18,6 @@ class EnglishAu extends Translation
     protected static $strings = [
         'login'         => 'Login',
         'register'      => 'Register',
-        'admincp'       => 'AdminCP',
         'profile'       => 'Profile',
         'logout'        => 'Logout',
         'timeline'      => 'Timeline',
@@ -30,10 +29,12 @@ class EnglishAu extends Translation
         'display_order' => 'Display order',
 
         // Admin
+        'admincp'   => 'AdminCP',
         'view_site' => 'View Site',
+        'settings'  => 'Settings',
+        'title'     => 'Title',
 
         // Users
-
         'users'          => 'Users',
         'username'       => 'Username',
         'password'       => 'Password',

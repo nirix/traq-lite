@@ -1,0 +1,20 @@
+<div class="admin settings container-fluid">
+    <h1 class="page-header"><?=t('settings')?></h1>
+
+    <form action="" method="post" class="form-horizontal">
+        <fieldset>
+            <legend>Traq</legend>
+
+            <div class="form-group">
+                <label for="title" class="control-label col-md-2"><?=t('title')?></label>
+                <div class="col-md-10">
+                    <input type="text" name="settings[title]" id="title" class="form-control" value="<?=setting('title')?>">
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success"><?=t('save')?></button>
+        </div>
+    </form>
+</div>

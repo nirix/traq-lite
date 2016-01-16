@@ -12,6 +12,7 @@ return [
     // -------------------------------------------------------------------------
     // Admin
     '/admin' => 'routes/admin/dashboard.php',
+    '/admin/settings' => 'routes/admin/settings.php',
 
     // Projects
     '/admin/projects' => 'routes/admin/projects/index.php',

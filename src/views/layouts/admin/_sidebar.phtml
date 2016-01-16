@@ -9,6 +9,9 @@
             <a href="<?=baseUrl()?>"><span class="fa fa-fw fa-home"></span> <?=t('view_site')?></a>
         </li>
         <li class="divider"></li>
+        <li class="<?=iif(Request::matches('/admin/settings.*'), 'active')?>">
+            <a href="<?=baseUrl('/admin/settings')?>"><span class="fa fa-fw fa-cogs"></span> <?=t('settings')?></a>
+        </li>
         <li class="<?=iif(Request::matches('/admin/projects.*'), 'active')?>">
             <a href="<?=baseUrl('/admin/projects')?>"><span class="fa fa-fw fa-folder"></span> <?=t('projects')?></a>
         </li>
