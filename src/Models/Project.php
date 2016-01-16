@@ -16,6 +16,14 @@ class Project extends Model
         'slug' => ['required'],
     ];
 
+    public static function all()
+    {
+        $query = db()->query('SELECT * FROM '.PREFIX.'projects ORDER BY display_order ASC');
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
     // -------------------------------------------------------------------------
     // Validation
 

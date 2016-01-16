@@ -1,0 +1,10 @@
+<div class="milestones edit container-fluid">
+    <h1 class="page-header"><?=t('edit_milestone')?></h1>
+
+    <form action="<?=baseUrl("/admin/milestones/{$milestone['id']}/edit")?>" method="post" class="form-horizontal">
+        <?=view('admin/milestones/_form.phtml', ['milestone' => $milestone])?>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success"><?=t('save')?></button>
+        </div>
+    </form>
+</div>

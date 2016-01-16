@@ -1,0 +1,50 @@
+<div class="form-group <?=iif($milestone->hasError('project_id'), 'has-error')?>">
+    <label for="project_id" class="control-label col-md-2"><?=t('project')?></label>
+    <div class="col-md-10">
+        <select name="project_id" id="project_id" class="form-control" <?=iif($milestone['id'], 'disabled')?>>
+        <?php foreach (Traq\Models\Project::all() as $project) : ?>
+            <option value="<?=$project['id']?>" <?=iif($project['id'] == $milestone['project_id'], 'selected')?>><?=$project['name']?></option>
+        <?php endforeach ?>
+        </select>
+        <?php if ($milestone->hasError('project_id')) : ?>
+            <div class="help-block"><?=errorMessageFor($milestone, 'project_id')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group <?=iif($milestone->hasError('name'), 'has-error')?>">
+    <label for="name" class="control-label col-md-2"><?=t('name')?></label>
+    <div class="col-md-10">
+        <input type="text" name="name" id="name" class="form-control" value="<?=$milestone['name']?>">
+        <?php if ($milestone->hasError('name')) : ?>
+            <div class="help-block"><?=errorMessageFor($milestone, 'name')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group <?=iif($milestone->hasError('slug'), 'has-error')?>">
+    <label for="slug" class="control-label col-md-2"><?=t('slug')?></label>
+    <div class="col-md-10">
+        <input type="text" name="slug" id="slug" class="form-control" value="<?=$milestone['slug']?>">
+        <div class="help-block">
+            <?=t('help.slug')?>
+        </div>
+        <?php if ($milestone->hasError('slug')) : ?>
+            <div class="help-block"><?=errorMessageFor($milestone, 'slug')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="description" class="control-label col-md-2"><?=t('description')?></label>
+    <div class="col-md-10">
+        <textarea name="description" id="description" class="form-control"><?=$milestone['description']?></textarea>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="display_order" class="control-label col-md-2"><?=t('display_order')?></label>
+    <div class="col-md-10">
+        <input type="text" name="display_order" id="display_order" class="form-control" value="<?=$milestone['display_order']?>">
+    </div>
+</div>
