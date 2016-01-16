@@ -60,6 +60,8 @@
       }
     }
 
+    li a:active,
+    li a:focus,
     li.active a,
     li a:hover  {
       background: darken($sidebar-bg, 4%);
