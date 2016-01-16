@@ -16,19 +16,24 @@ class EnglishAu extends Translation
     protected static $name = 'English';
     protected static $locale = 'en_AU';
     protected static $strings = [
-        'login'       => 'Login',
-        'register'    => 'Register',
-        'timeline'    => 'Timeline',
-        'tickets'     => 'Tickets',
-        'description' => 'Description',
-        'edit'        => 'Edit',
-        'delete'      => 'Delete',
-        'dashboard'   => 'Dashboard',
+        'login'         => 'Login',
+        'register'      => 'Register',
+        'admincp'       => 'AdminCP',
+        'profile'       => 'Profile',
+        'logout'        => 'Logout',
+        'timeline'      => 'Timeline',
+        'tickets'       => 'Tickets',
+        'description'   => 'Description',
+        'edit'          => 'Edit',
+        'delete'        => 'Delete',
+        'dashboard'     => 'Dashboard',
+        'display_order' => 'Display order',
 
         // Admin
         'view_site' => 'View Site',
 
         // Users
+
         'users'          => 'Users',
         'username'       => 'Username',
         'password'       => 'Password',
@@ -36,9 +41,9 @@ class EnglishAu extends Translation
         'create_account' => 'Create Account',
 
         // Projects
+        'project'        => 'Project',
         'projects'       => 'Projects',
         'new_project'    => 'New Project',
-        'create_project' => 'Create Project',
         'edit_project'   => 'Edit Project',
         'name'           => 'Name',
         'slug'           => 'Slug',
@@ -49,9 +54,15 @@ class EnglishAu extends Translation
 
         // Milestones
         'milestones' => 'Milestones',
+        'new_milestone' => 'New Milestone',
+        'edit_milestone' => 'Edit Milestone',
+
+        // Forms
+        'create' => 'Create',
+        'save' => 'Save',
 
         // Help
-        'help.slug' => 'The URL friendly version of the project name.',
+        'help.slug' => 'The URL friendly string.',
 
         // Errors
         'errors.validation.required'  => '{field} is required',
