@@ -26,7 +26,7 @@
                             <span class="fa fa-pencil"></span> <span class="sr-only"><?=t('edit')?></span>
                         </a>
 
-                        <a href="<?=baseUrl("/admin/milestones/{$milestone['id']}/delete")?>" class="btn btn-xs btn-danger" title="<?=t('delete')?>">
+                        <a href="<?=baseUrl("/admin/milestones/{$milestone['id']}/delete")?>" class="btn btn-xs btn-danger" title="<?=t('delete')?>" data-confirm="<?=t('confirm.delete_x', [$milestone['name']])?>">
                             <span class="fa fa-trash"></span> <span class="sr-only"><?=t('delete')?></span>
                         </a>
                     </div>

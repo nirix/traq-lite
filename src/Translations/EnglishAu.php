@@ -63,7 +63,10 @@ class EnglishAu extends Translation
         'save' => 'Save',
 
         // Help
-        'help.slug' => 'The URL friendly string.',
+        'help.slug' => 'A string to be used in the URL.',
+
+        // Confirmations
+        'confirm.delete_x' => 'Deleting {0} cannot be undone, are you sure?',
 
         // Errors
         'errors.validation.required'  => '{field} is required',
