@@ -1,0 +1,9 @@
+<div class="form-group <?=iif($type->hasError('name'), 'has-error')?>">
+    <label for="name" class="control-label col-md-2"><?=t('name')?></label>
+    <div class="col-md-10">
+        <input type="text" name="name" id="name" class="form-control" value="<?=$type['name']?>">
+        <?php if ($type->hasError('name')) : ?>
+            <div class="help-block"><?=errorMessageFor($type, 'name')?></div>
+        <?php endif ?>
+    </div>
+</div>

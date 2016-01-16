@@ -24,6 +24,10 @@ return [
     '/admin/milestones/new' => 'routes/admin/milestones/new.php',
     '/admin/milestones/{id}/edit' => 'routes/admin/milestones/edit.php',
 
+    // Ticket types
+    '/admin/types' => 'routes/admin/types/index.php',
+    '/admin/types/new' => 'routes/admin/types/new.php',
+
     // -------------------------------------------------------------------------
     // Projects
     '/{pslug}' => 'routes/project.php',
