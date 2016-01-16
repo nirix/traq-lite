@@ -24,8 +24,8 @@ if (Request::$method == 'POST') {
 
         $query = db()->prepare('
             INSERT INTO '.PREFIX.'projects
-            (name, slug, description, display_order)
-            VALUES(:name, :slug, :description, :display_order)
+            (name, slug, description, display_order, created_at)
+            VALUES(:name, :slug, :description, :display_order, NOW())
         ');
 
         $query->bindValue(':name', $project['name']);

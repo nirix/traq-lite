@@ -37,7 +37,8 @@ if (Request::$method == 'POST') {
             SET name = :name,
                 slug = :slug,
                 description = :description,
-                display_order = :display_order
+                display_order = :display_order,
+                updated_at = NOW()
             WHERE id = :id
             LIMIT 1
         ');
