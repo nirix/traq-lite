@@ -10,6 +10,8 @@
   top: 0;
   bottom: 0;
   left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
   a {
     color: #fff;
@@ -22,6 +24,11 @@
   .sidebar-brand {
     background: lighten($sidebar-bg, 4%);
     transition: background-color 0.3s ease;
+    border-bottom: 1px solid lighten($sidebar-bg, 4%);
+    float: left;
+    position: fixed;
+    width: 230px;
+    z-index: 1000;
 
     &:hover {
       background: darken($sidebar-bg, 4%);
@@ -42,6 +49,9 @@
   }
 
   .nav-sidebar {
+    margin-top: 58px;
+    margin-bottom: 100px;
+
     a {
       transition: background-color 0.3s ease;
 
@@ -63,11 +73,13 @@
   }
 
   .sidebar-actions {
+    background: $sidebar-bg;
     padding: 9px 22px;
     position: fixed;
     bottom: 0;
     width: 230px;
     overflow: hidden;
+    z-index: 1000;
 
     a {
       color: darken(#fff, 20%);
