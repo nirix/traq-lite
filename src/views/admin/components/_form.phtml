@@ -1,0 +1,23 @@
+<div class="form-group <?=iif($component->hasError('project_id'), 'has-error')?>">
+    <label for="project_id" class="control-label col-md-2"><?=t('project')?></label>
+    <div class="col-md-10">
+        <select name="project_id" id="project_id" class="form-control" <?=iif($component['id'], 'disabled')?>>
+        <?php foreach (Traq\Models\Project::all() as $project) : ?>
+            <option value="<?=$project['id']?>" <?=iif($project['id'] == $component['project_id'], 'selected')?>><?=$project['name']?></option>
+        <?php endforeach ?>
+        </select>
+        <?php if ($component->hasError('project_id')) : ?>
+            <div class="help-block"><?=errorMessageFor($component, 'project_id')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group <?=iif($component->hasError('name'), 'has-error')?>">
+    <label for="name" class="control-label col-md-2"><?=t('name')?></label>
+    <div class="col-md-10">
+        <input type="text" name="name" id="name" class="form-control" value="<?=$component['name']?>">
+        <?php if ($component->hasError('name')) : ?>
+            <div class="help-block"><?=errorMessageFor($component, 'name')?></div>
+        <?php endif ?>
+    </div>
+</div>

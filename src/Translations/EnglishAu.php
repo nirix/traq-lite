@@ -64,6 +64,12 @@ class EnglishAu extends Translation
         'new_type'     => 'New Type',
         'edit_type'    => 'Edit Type',
 
+        // Components
+        'component'      => 'Component',
+        'components'     => 'Components',
+        'new_component'  => 'New Component',
+        'edit_component' => 'Edit Component',
+
         // Forms
         'create' => 'Create',
         'save'   => 'Save',

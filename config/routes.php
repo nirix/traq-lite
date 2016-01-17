@@ -29,6 +29,11 @@ return [
     '/admin/types/new' => 'routes/admin/types/new.php',
     '/admin/types/{id}/edit' => 'routes/admin/types/edit.php',
 
+    // Components
+    '/admin/components' => 'routes/admin/components/index.php',
+    '/admin/components/new' => 'routes/admin/components/new.php',
+    '/admin/components/{id}/edit' => 'routes/admin/components/edit.php',
+
     // -------------------------------------------------------------------------
     // Projects
     '/{pslug}' => 'routes/project.php',

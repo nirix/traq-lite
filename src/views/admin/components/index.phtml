@@ -1,0 +1,38 @@
+<div class="components container-fluid">
+    <div class="pull-right">
+        <a href="<?=baseUrl('/admin/components/new')?>" class="btn btn-sm btn-success">
+            <span class="fa fa-plus"></span> <?=t('new_component')?>
+        </a>
+    </div>
+
+    <h1 class="page-header"><?=t('components')?></h1>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th><?=t('name')?></th>
+                <th><?=t('project')?></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($components as $component) : ?>
+            <tr>
+                <td><a href="<?=baseUrl("/admin/components/{$component['id']}/edit")?>"><?=$component['name']?></a></td>
+                <td><?=$component['project_name']?></td>
+                <td>
+                    <div class="text-right">
+                        <a href="<?=baseUrl("/admin/components/{$component['id']}/edit")?>" class="btn btn-xs btn-warning" title="<?=t('edit')?>">
+                            <span class="fa fa-pencil"></span> <span class="sr-only"><?=t('edit')?></span>
+                        </a>
+
+                        <a href="<?=baseUrl("/admin/components/{$component['id']}/delete")?>" class="btn btn-xs btn-danger" title="<?=t('delete')?>" data-confirm="<?=t('confirm.delete_x', [$component['name']])?>">
+                            <span class="fa fa-trash"></span> <span class="sr-only"><?=t('delete')?></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        <?php endforeach ?>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,10 @@
+<div class="components edit container-fluid">
+    <h1 class="page-header"><?=t('edit_component')?></h1>
+
+    <form action="<?=baseUrl("/admin/components/{$component['id']}/edit")?>" method="post" class="form-horizontal">
+        <?=view('admin/components/_form.phtml', ['component' => $component])?>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success"><?=t('save')?></button>
+        </div>
+    </form>
+</div>
