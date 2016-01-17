@@ -1,0 +1,86 @@
+<div class="tickets new container">
+    <h1 class="page-header"><?=t('new_ticket')?></h1>
+
+    <form action="" method="post" class="form-horizontal">
+        <div class="form-group <?=iif($ticket->hasError('type_id'), 'has-error')?>">
+            <label for="type_id" class="control-label col-md-3"><?=t('type')?></label>
+            <div class="col-md-9">
+                <select name="type_id" id="type_id" class="form-control">
+                <?php foreach (Traq\Models\Type::all() as $type) : ?>
+                    <option value="<?=$type['id']?>"><?=$type['name']?></option>
+                <?php endforeach ?>
+                </select>
+                <?php if ($ticket->hasError('type_id')) : ?>
+                    <div class="help-block"><?=errorMessageFor($ticket, 'type_id')?></div>
+                <?php endif ?>
+            </div>
+        </div>
+
+        <div class="form-group <?=iif($ticket->hasError('summary'), 'has-error')?>">
+            <label for="summary" class="control-label col-md-3"><?=t('summary')?></label>
+            <div class="col-md-9">
+                <input type="text" name="summary" id="summary" class="form-control" value="<?=$ticket['summary']?>">
+                <?php if ($ticket->hasError('summary')) : ?>
+                    <div class="help-block"><?=errorMessageFor($ticket, 'summary')?></div>
+                <?php endif ?>
+            </div>
+        </div>
+
+        <div class="form-group <?=iif($ticket->hasError('body'), 'has-error')?>">
+            <label for="body" class="control-label col-md-3"><?=t('description')?></label>
+            <div class="col-md-9">
+                <textarea name="body" id="body" class="form-control"><?=$ticket['body']?></textarea>
+                <?php if ($ticket->hasError('body')) : ?>
+                    <div class="help-block"><?=errorMessageFor($ticket, 'body')?></div>
+                <?php endif ?>
+            </div>
+        </div>
+
+        <div class="form-group <?=iif($ticket->hasError('status_id'), 'has-error')?>">
+            <label for="status_id" class="control-label col-md-3"><?=t('status')?></label>
+            <div class="col-md-9">
+                <select name="status_id" id="status_id" class="form-control">
+                <?php foreach (Traq\Models\Status::all() as $status) : ?>
+                    <option value="<?=$status['id']?>" <?=iif($status['id'] == $ticket['status_id'], 'selected')?>><?=$status['name']?></option>
+                <?php endforeach ?>
+                </select>
+                <?php if ($ticket->hasError('status_id')) : ?>
+                    <div class="help-block"><?=errorMessageFor($ticket, 'status_id')?></div>
+                <?php endif ?>
+            </div>
+        </div>
+
+        <div class="form-group <?=iif($ticket->hasError('milestone_id'), 'has-error')?>">
+            <label for="milestone_id" class="control-label col-md-3"><?=t('milestone')?></label>
+            <div class="col-md-9">
+                <select name="milestone_id" id="milestone_id" class="form-control">
+                <?php foreach (Traq\Models\Milestone::active(currentProject()->get('id')) as $milestone) : ?>
+                    <option value="<?=$milestone['id']?>" <?=iif($milestone['id'] == $ticket['milestone_id'], 'selected')?>><?=$milestone['name']?></option>
+                <?php endforeach ?>
+                </select>
+                <?php if ($ticket->hasError('milestone_id')) : ?>
+                    <div class="help-block"><?=errorMessageFor($ticket, 'milestone_id')?></div>
+                <?php endif ?>
+            </div>
+        </div>
+
+        <div class="form-group <?=iif($ticket->hasError('component_id'), 'has-error')?>">
+            <label for="component_id" class="control-label col-md-3"><?=t('component')?></label>
+            <div class="col-md-9">
+                <select name="component_id" id="component_id" class="form-control">
+                    <option></option>
+                <?php foreach (Traq\Models\Component::all(currentProject()->get('id')) as $component) : ?>
+                    <option value="<?=$component['id']?>" <?=iif($component['id'] == $ticket['component_id'], 'selected')?>><?=$component['name']?></option>
+                <?php endforeach ?>
+                </select>
+                <?php if ($ticket->hasError('component_id')) : ?>
+                    <div class="help-block"><?=errorMessageFor($ticket, 'component_id')?></div>
+                <?php endif ?>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success"><?=t('create')?></button>
+        </div>
+    </form>
+</div>

@@ -17,6 +17,13 @@ class Milestone extends Model
         'project_id' => ['required']
     ];
 
+    public static function active($projectId)
+    {
+        $query = db()->prepare('SELECT * FROM '.PREFIX.'milestones WHERE project_id = ? AND status > 0 ORDER BY name ASC');
+        $query->execute([$projectId]);
+        return $query->fetchAll();
+    }
+
     // -------------------------------------------------------------------------
     // Validation
 

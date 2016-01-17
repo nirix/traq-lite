@@ -52,6 +52,7 @@ class EnglishAu extends Translation
         // Ticket properties
         'id'      => 'ID',
         'summary' => 'Summary',
+        'body'    => 'Description',
 
         // Ticket types
         'type'         => 'Type',

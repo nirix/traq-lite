@@ -16,6 +16,13 @@ class Component extends Model
         'project_id' => ['required']
     ];
 
+    public static function all($projectId)
+    {
+        $query = db()->prepare('SELECT * FROM '.PREFIX.'components WHERE project_id = ? ORDER BY name ASC');
+        $query->execute([$projectId]);
+        return $query->fetchAll();
+    }
+
     // -------------------------------------------------------------------------
     // Validation
 
