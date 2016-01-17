@@ -54,13 +54,19 @@ class EnglishAu extends Translation
         'summary' => 'Summary',
 
         // Milestones
-        'milestones' => 'Milestones',
-        'new_milestone' => 'New Milestone',
+        'milestones'     => 'Milestones',
+        'new_milestone'  => 'New Milestone',
         'edit_milestone' => 'Edit Milestone',
+
+        // Ticket types
+        'type'         => 'Type',
+        'ticket_types' => 'Ticket Types',
+        'new_type'     => 'New Type',
+        'edit_type'    => 'Edit Type',
 
         // Forms
         'create' => 'Create',
-        'save' => 'Save',
+        'save'   => 'Save',
 
         // Help
         'help.slug' => 'A string to be used in the URL.',

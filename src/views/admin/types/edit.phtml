@@ -1,0 +1,10 @@
+<div class="types edit container-fluid">
+    <h1 class="page-header"><?=t('edit_type')?></h1>
+
+    <form action="<?=baseUrl("/admin/types/{$type['id']}/edit")?>" method="post" class="form-horizontal">
+        <?=view('admin/types/_form.phtml', ['type' => $type])?>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success"><?=t('save')?></button>
+        </div>
+    </form>
+</div>

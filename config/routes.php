@@ -27,6 +27,7 @@ return [
     // Ticket types
     '/admin/types' => 'routes/admin/types/index.php',
     '/admin/types/new' => 'routes/admin/types/new.php',
+    '/admin/types/{id}/edit' => 'routes/admin/types/edit.php',
 
     // -------------------------------------------------------------------------
     // Projects
