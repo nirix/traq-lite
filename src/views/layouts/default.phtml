@@ -47,7 +47,8 @@
                 <ul>
                 <?php if (currentProject()) : ?>
                     <li class="<?=iif(Request::matches('/{pslug}/timeline'), 'active')?>"><a href="<?=projectUrl('/timeline')?>"><?=t('timeline')?></a></li>
-                    <li class="<?=iif(Request::matches('/{pslug}/tickets(/.*)?'), 'active')?>"><a href="<?=projectUrl('/tickets')?>"><?=t('tickets')?></a></li>
+                    <li class="<?=iif(Request::matches('/{pslug}/tickets(/[\d]+)?'), 'active')?>"><a href="<?=projectUrl('/tickets')?>"><?=t('tickets')?></a></li>
+                    <li class="<?=iif(Request::matches('/{pslug}/tickets/new'), 'active')?>"><a href="<?=projectUrl('/tickets/new')?>"><?=t('new_ticket')?></a></li>
                 <?php else : ?>
                     <li class="<?=iif(Request::matches('/'), 'active')?>"><a href="<?=baseUrl()?>"><?=t('projects')?></a></li>
                 <?php endif ?>
