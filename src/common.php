@@ -12,6 +12,7 @@ use Unf\Request;
 use Traq\Language;
 use Traq\Models\Model;
 use Traq\Models\User;
+use Traq\Models\Project;
 
 // -----------------------------------------------------------------------------
 // Settings
@@ -81,8 +82,19 @@ function currentUser()
  */
 function currentProject()
 {
-    $project = db()->prepare('SELECT * FROM '.PREFIX.'projects WHERE slug = ? LIMIT 1');
-    return $project->execute([Request::$properties->get('pslug')]) ? $project->fetch() : false;
+    if (!isset($_GLOBALS['current_project'])) {
+        $query = db()->prepare('SELECT * FROM '.PREFIX.'projects WHERE slug = ? LIMIT 1');
+        $query->bindValue(1, Request::$properties->get('pslug'));
+        $query->execute();
+
+        $project = $query->fetch();
+
+        if ($project) {
+            $_GLOBALS['current_project'] = new Project($project);
+        }
+    }
+
+    return isset($_GLOBALS['current_project']) ? $_GLOBALS['current_project'] : false;
 }
 
 // -----------------------------------------------------------------------------
