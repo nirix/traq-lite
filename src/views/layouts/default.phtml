@@ -23,7 +23,7 @@
                         <?php if (currentUser()->isAdmin()) : ?>
                             <li><a href="<?=baseUrl('/admin')?>" title="<?=t('admincp')?>" data-placement="bottom"><span class="fa fa-cog"></span></a></li>
                         <?php endif ?>
-                        <li><a href="<?=baseUrl('/profile')?>" title="<?=t('profile')?>" data-placement="bottom"><span class="fa fa-user"></span></a></li>
+                        <li><a href="<?=baseUrl('/users/' . currentUser()['id'])?>" title="<?=t('profile')?>" data-placement="bottom"><span class="fa fa-user"></span></a></li>
                         <li><a href="<?=baseUrl('/logout')?>" title="<?=t('logout')?>" data-placement="bottom"><span class="fa fa-sign-out"></span></a></li>
                     <?php else : ?>
                         <li class="<?=iif(Request::matches('/login'), 'active')?>"><a href="<?=baseUrl('/login')?>"><?=t('login')?></a></li>
