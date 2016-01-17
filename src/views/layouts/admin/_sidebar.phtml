@@ -15,17 +15,20 @@
         <li class="<?=iif(Request::matches('/admin/projects.*'), 'active')?>">
             <a href="<?=baseUrl('/admin/projects')?>"><span class="fa fa-fw fa-folder"></span> <?=t('projects')?></a>
         </li>
-        <li class="<?=iif(Request::matches('/admin/milestones.*'), 'active')?>">
-            <a href="<?=baseUrl('/admin/milestones')?>"><span class="fa fa-fw fa-map-signs"></span> <?=t('milestones')?></a>
-        </li>
         <li class="<?=iif(Request::matches('/admin/types.*'), 'active')?>">
             <a href="<?=baseUrl('/admin/types')?>"><span class="fa fa-fw fa-bookmark"></span> <?=t('ticket_types')?></a>
+        </li>
+        <li class="<?=iif(Request::matches('/admin/milestones.*'), 'active')?>">
+            <a href="<?=baseUrl('/admin/milestones')?>"><span class="fa fa-fw fa-map-signs"></span> <?=t('milestones')?></a>
         </li>
         <li class="<?=iif(Request::matches('/admin/components.*'), 'active')?>">
             <a href="<?=baseUrl('/admin/components')?>"><span class="fa fa-fw fa-puzzle-piece"></span> <?=t('components')?></a>
         </li>
         <li class="<?=iif(Request::matches('/admin/users.*'), 'active')?>">
-            <a href="<?=baseUrl('/admin/users')?>"><span class="fa fa-fw fa-users"></span> <?=t('users')?></a>
+            <a href="<?=baseUrl('/admin/users')?>"><span class="fa fa-fw fa-venus-mars"></span> <?=t('users')?></a>
+        </li>
+        <li class="<?=iif(Request::matches('/admin/groups.*'), 'active')?>">
+            <a href="<?=baseUrl('/admin/groups')?>"><span class="fa fa-fw fa-users"></span> <?=t('groups')?></a>
         </li>
     </ul>
 </div>
