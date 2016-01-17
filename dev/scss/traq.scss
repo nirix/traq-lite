@@ -12,11 +12,6 @@ $fa-font-path: '../fonts';
  * Licensed under the BSD 3-clause license.
  */
 
-// body {
-//     background: #e9e9e9;
-//     color: #000;
-// }
-
 main {
     padding: 20px 0;
     background: #fff;
@@ -32,3 +27,4 @@ main {
 }
 
 @import 'traq/header.scss';
+@import 'framework/framework.scss';

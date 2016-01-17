@@ -1,0 +1,22 @@
+
+@import 'bootstrap/buttons';
+
+.btn {
+  transition: background-color 0.25s ease-out,
+              border-color 0.3s ease,
+              color 0.25s ease-out;
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
+  }
+
+  &:active,
+  &.active {
+    @include box-shadow(none);
+  }
+}
