@@ -29,6 +29,12 @@ class Kernel extends AppKernel
 
         $_ENV['environment'] = $this->config['environment'];
 
+        if ($_ENV['environment'] == 'development') {
+            $whoops = new \Whoops\Run;
+            $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+            $whoops->register();
+        }
+
         class_alias('Unf\\Request', 'Request');
 
         $dbConfig = $this->config['db'][$this->config['environment']];
