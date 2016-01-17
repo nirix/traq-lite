@@ -31,6 +31,7 @@ main {
     @extend .text-muted;
 
     padding: 10px;
+    margin-top: 0;
 }
 
 @import 'admin/sidebar';
