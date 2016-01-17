@@ -53,16 +53,24 @@ class EnglishAu extends Translation
         'id'      => 'ID',
         'summary' => 'Summary',
 
-        // Milestones
-        'milestones'     => 'Milestones',
-        'new_milestone'  => 'New Milestone',
-        'edit_milestone' => 'Edit Milestone',
-
         // Ticket types
         'type'         => 'Type',
         'ticket_types' => 'Ticket Types',
         'new_type'     => 'New Type',
         'edit_type'    => 'Edit Type',
+
+        // Ticket statuses
+        'status'          => 'Status',
+        'ticket_statuses' => 'Ticket Statuses',
+        'new_status'      => 'New Status',
+        'edit_status'     => 'Edit Status',
+        'open'            => 'Open',
+        'closed'          => 'Closed',
+
+        // Milestones
+        'milestones'     => 'Milestones',
+        'new_milestone'  => 'New Milestone',
+        'edit_milestone' => 'Edit Milestone',
 
         // Components
         'component'      => 'Component',

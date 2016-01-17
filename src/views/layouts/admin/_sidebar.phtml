@@ -18,6 +18,9 @@
         <li class="<?=iif(Request::matches('/admin/types.*'), 'active')?>">
             <a href="<?=baseUrl('/admin/types')?>"><span class="fa fa-fw fa-bookmark"></span> <?=t('ticket_types')?></a>
         </li>
+        <li class="<?=iif(Request::matches('/admin/statuses.*'), 'active')?>">
+            <a href="<?=baseUrl('/admin/statuses')?>"><span class="fa fa-fw fa-question"></span> <?=t('ticket_statuses')?></a>
+        </li>
         <li class="<?=iif(Request::matches('/admin/milestones.*'), 'active')?>">
             <a href="<?=baseUrl('/admin/milestones')?>"><span class="fa fa-fw fa-map-signs"></span> <?=t('milestones')?></a>
         </li>

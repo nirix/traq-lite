@@ -1,0 +1,22 @@
+<div class="form-group <?=iif($status->hasError('name'), 'has-error')?>">
+    <label for="name" class="control-label col-md-2"><?=t('name')?></label>
+    <div class="col-md-10">
+        <input status="text" name="name" id="name" class="form-control" value="<?=$status['name']?>">
+        <?php if ($status->hasError('name')) : ?>
+            <div class="help-block"><?=errorMessageFor($status, 'name')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group <?=iif($status->hasError('status'), 'has-error')?>">
+    <label for="status" class="control-label col-md-2"><?=t('status')?></label>
+    <div class="col-md-10">
+        <select name="status" id="status" class="form-control">
+            <option value="1" <?=iif($status['status'] == '1', 'selected')?>><?=t('open')?></option>
+            <option value="0" <?=iif($status['status'] == '0', 'selected')?>><?=t('closed')?></option>
+        </select>
+        <?php if ($status->hasError('status')) : ?>
+            <div class="help-block"><?=errorMessageFor($status, 'status')?></div>
+        <?php endif ?>
+    </div>
+</div>

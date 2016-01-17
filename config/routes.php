@@ -19,15 +19,20 @@ return [
     '/admin/projects/new' => 'routes/admin/projects/new.php',
     '/admin/projects/{id}/edit' => 'routes/admin/projects/edit.php',
 
-    // Milestones
-    '/admin/milestones' => 'routes/admin/milestones/index.php',
-    '/admin/milestones/new' => 'routes/admin/milestones/new.php',
-    '/admin/milestones/{id}/edit' => 'routes/admin/milestones/edit.php',
-
     // Ticket types
     '/admin/types' => 'routes/admin/types/index.php',
     '/admin/types/new' => 'routes/admin/types/new.php',
     '/admin/types/{id}/edit' => 'routes/admin/types/edit.php',
+
+    // Ticket statuses
+    '/admin/statuses' => 'routes/admin/statuses/index.php',
+    '/admin/statuses/new' => 'routes/admin/statuses/new.php',
+    '/admin/statuses/{id}/edit' => 'routes/admin/statuses/edit.php',
+
+    // Milestones
+    '/admin/milestones' => 'routes/admin/milestones/index.php',
+    '/admin/milestones/new' => 'routes/admin/milestones/new.php',
+    '/admin/milestones/{id}/edit' => 'routes/admin/milestones/edit.php',
 
     // Components
     '/admin/components' => 'routes/admin/components/index.php',
