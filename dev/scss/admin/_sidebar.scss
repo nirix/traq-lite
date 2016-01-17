@@ -14,13 +14,10 @@
   left: 0;
   overflow-x: hidden;
   overflow-y: scroll;
+  width: 230px;
 
   a {
     color: #fff;
-  }
-
-  &.sidebar-expanded {
-    width: 230px;
   }
 
   .sidebar-brand {
