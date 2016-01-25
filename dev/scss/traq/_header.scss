@@ -32,6 +32,10 @@
     padding-right: 0;
   }
 
+  .container-fluid {
+    padding-left: 0;
+  }
+
   .navbar-nav > li > a {
     padding-bottom: 5px;
     padding-top: 5px;
@@ -47,7 +51,7 @@
   color: #fff;
   height: 21px;
 
-  > .container > ul {
+  ul {
     padding: 0;
 
     & > li {

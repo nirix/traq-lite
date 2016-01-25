@@ -11,64 +11,66 @@
         <script src="<?=baseUrl('assets/js/ujs.js')?>"></script>
     </head>
     <body>
-        <div class="navbar navbar-static-top navbar-inverse">
-            <div class="container">
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="<?=baseUrl('/')?>"><?=setting('title')?></a></li>
-                    </ul>
+        <div id="wrapper" class="container">
+            <div class="navbar navbar-static-top navbar-inverse">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="<?=baseUrl('/')?>"><?=setting('title')?></a></li>
+                        </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                    <?php if (currentUser()) : ?>
-                        <?php if (currentUser()->isAdmin()) : ?>
-                            <li><a href="<?=baseUrl('/admin')?>" title="<?=t('admincp')?>" data-placement="bottom"><span class="fa fa-cog"></span></a></li>
+                        <ul class="nav navbar-nav navbar-right">
+                        <?php if (currentUser()) : ?>
+                            <?php if (currentUser()->isAdmin()) : ?>
+                                <li><a href="<?=baseUrl('/admin')?>" title="<?=t('admincp')?>" data-placement="bottom"><span class="fa fa-cog"></span></a></li>
+                            <?php endif ?>
+                            <li><a href="<?=baseUrl('/users/' . currentUser()['id'])?>" title="<?=t('profile')?>" data-placement="bottom"><span class="fa fa-user"></span></a></li>
+                            <li><a href="<?=baseUrl('/logout')?>" title="<?=t('logout')?>" data-placement="bottom"><span class="fa fa-sign-out"></span></a></li>
+                        <?php else : ?>
+                            <li class="<?=iif(Request::matches('/login'), 'active')?>"><a href="<?=baseUrl('/login')?>"><?=t('login')?></a></li>
+                            <li class="<?=iif(Request::matches('/register'), 'active')?>"><a href="<?=baseUrl('/register')?>"><?=t('register')?></a></li>
                         <?php endif ?>
-                        <li><a href="<?=baseUrl('/users/' . currentUser()['id'])?>" title="<?=t('profile')?>" data-placement="bottom"><span class="fa fa-user"></span></a></li>
-                        <li><a href="<?=baseUrl('/logout')?>" title="<?=t('logout')?>" data-placement="bottom"><span class="fa fa-sign-out"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <header id="header">
+                <div class="container-fluid">
+                <?php if (currentProject()) : ?>
+                    <a href="<?=projectUrl()?>" class="brand"><?=currentProject()['name']?></a>
+                <?php else : ?>
+                    <a href="<?=baseUrl()?>" class="brand">Traq</a>
+                <?php endif ?>
+                </div>
+            </header>
+            <nav id="nav">
+                <div class="container-fluid">
+                    <ul>
+                    <?php if (currentProject()) : ?>
+                        <li class="<?=iif(Request::matches('/{pslug}/timeline'), 'active')?>"><a href="<?=projectUrl('/timeline')?>"><?=t('timeline')?></a></li>
+                        <li class="<?=iif(Request::matches('/{pslug}/tickets(/[\d]+)?'), 'active')?>"><a href="<?=projectUrl('/tickets')?>"><?=t('tickets')?></a></li>
+                        <li class="<?=iif(Request::matches('/{pslug}/tickets/new'), 'active')?>"><a href="<?=projectUrl('/tickets/new')?>"><?=t('new_ticket')?></a></li>
                     <?php else : ?>
-                        <li class="<?=iif(Request::matches('/login'), 'active')?>"><a href="<?=baseUrl('/login')?>"><?=t('login')?></a></li>
-                        <li class="<?=iif(Request::matches('/register'), 'active')?>"><a href="<?=baseUrl('/register')?>"><?=t('register')?></a></li>
+                        <li class="<?=iif(Request::matches('/'), 'active')?>"><a href="<?=baseUrl()?>"><?=t('projects')?></a></li>
                     <?php endif ?>
                     </ul>
                 </div>
-            </div>
-        </div>
-        <header id="header">
-            <div class="container">
-            <?php if (currentProject()) : ?>
-                <a href="<?=projectUrl()?>" class="brand"><?=currentProject()['name']?></a>
-            <?php else : ?>
-                <a href="<?=baseUrl()?>" class="brand">Traq</a>
-            <?php endif ?>
-            </div>
-        </header>
-        <nav id="nav">
-            <div class="container">
-                <ul>
-                <?php if (currentProject()) : ?>
-                    <li class="<?=iif(Request::matches('/{pslug}/timeline'), 'active')?>"><a href="<?=projectUrl('/timeline')?>"><?=t('timeline')?></a></li>
-                    <li class="<?=iif(Request::matches('/{pslug}/tickets(/[\d]+)?'), 'active')?>"><a href="<?=projectUrl('/tickets')?>"><?=t('tickets')?></a></li>
-                    <li class="<?=iif(Request::matches('/{pslug}/tickets/new'), 'active')?>"><a href="<?=projectUrl('/tickets/new')?>"><?=t('new_ticket')?></a></li>
-                <?php else : ?>
-                    <li class="<?=iif(Request::matches('/'), 'active')?>"><a href="<?=baseUrl()?>"><?=t('projects')?></a></li>
-                <?php endif ?>
-                </ul>
-            </div>
-        </nav>
+            </nav>
 
-        <main>
-            <?=$content?>
-        </main>
+            <main>
+                <?=$content?>
+            </main>
 
-        <footer id="footer">
-            <div class="container">
-                <?php if ($_ENV['environment'] === 'development') : ?>
-                <div class="text-muted pull-right">
-                    <?=round((microtime(true) - START_TIME), 2); ?>s, <?php echo round((memory_get_peak_usage() - START_MEM) / pow(1024, 2), 3)?>mb
+            <footer id="footer">
+                <div class="container-fluid">
+                    <?php if ($_ENV['environment'] === 'development') : ?>
+                    <div class="text-muted pull-right">
+                        <?=round((microtime(true) - START_TIME), 2); ?>s, <?php echo round((memory_get_peak_usage() - START_MEM) / pow(1024, 2), 3)?>mb
+                    </div>
+                    <?php endif ?>
+                    <div class="text-muted">Powered by Traq Lite v<?=Traq\Kernel::VERSION?> &copy 2009-<?=date("Y")?> Traq.io</div>
                 </div>
-                <?php endif ?>
-                <div class="text-muted">Powered by Traq Lite v<?=Traq\Kernel::VERSION?> &copy 2009-<?=date("Y")?> Traq.io</div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </body>
 </html>

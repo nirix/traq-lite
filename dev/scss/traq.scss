@@ -28,3 +28,16 @@ main {
 
 @import 'traq/header.scss';
 @import 'framework/framework.scss';
+
+#wrapper {
+  margin-top: 25px;
+  border-radius: 5px;
+
+  div:first-child {
+    border-radius: 5px 5px 0 0;
+  }
+
+  main {
+    border-radius: 0 0 5px 5px;
+  }
+}
