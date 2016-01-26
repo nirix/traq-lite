@@ -20,6 +20,7 @@ if (Request::$method == 'POST') {
         'body'         => Request::$post['body'],
         'project_id'   => currentProject()->get('id'),
         'user_id'      => currentUser()->get('id'),
+        'type_id'      => Request::$post['type_id'],
         'status_id'    => Request::$post['status_id'],
         'milestone_id' => Request::$post['milestone_id'],
         'component_id' => Request::$post['component_id']
@@ -31,8 +32,8 @@ if (Request::$method == 'POST') {
 
         $query = db()->prepare('
             INSERT INTO '.PREFIX.'tickets
-            (ticket_id, summary, body, project_id, user_id, status_id, milestone_id, component_id, created_at)
-            VALUES (:ticket_id, :summary, :body, :project_id, :user_id, :status_id, :milestone_id, :component_id, NOW())
+            (ticket_id, summary, body, project_id, user_id, type status_id, milestone_id, component_id, created_at)
+            VALUES (:ticket_id, :summary, :body, :project_id, :user_id, :type :status_id, :milestone_id, :component_id, NOW())
         ');
 
         $query->bindValue(':ticket_id', $ticket['ticket_id'], PDO::PARAM_INT);
@@ -40,6 +41,7 @@ if (Request::$method == 'POST') {
         $query->bindValue(':body', $ticket['body']);
         $query->bindValue(':project_id', $ticket['project_id'], PDO::PARAM_INT);
         $query->bindValue(':user_id', $ticket['user_id'], PDO::PARAM_INT);
+        $query->bindValue(':type_id', $ticket['type_id'], PDO::PARAM_INT);
         $query->bindValue(':status_id', $ticket['status_id'], PDO::PARAM_INT);
         $query->bindValue(':milestone_id', $ticket['milestone_id'], PDO::PARAM_INT);
         $query->bindValue(':component_id', $ticket['component_id'] ?: null);
