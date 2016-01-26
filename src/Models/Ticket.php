@@ -16,6 +16,7 @@ class Ticket extends Model
         'body'         => ['required'],
         'milestone_id' => ['required'],
         'user_id'      => ['required'],
+        'type_id'      => ['required'],
         'status_id'    => ['required']
     ];
 }
