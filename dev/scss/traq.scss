@@ -13,8 +13,13 @@ $fa-font-path: '../fonts';
  */
 
 main {
-    padding: 20px 0;
+    // padding: 20px 0;
     background: #fff;
+
+    .content {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
 }
 
 .page-header {
