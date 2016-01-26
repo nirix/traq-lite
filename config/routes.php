@@ -42,7 +42,7 @@ return [
     // -------------------------------------------------------------------------
     // Projects
     '/{pslug}' => 'routes/project.php',
-    '/{pslug}/tickets' => 'routes/tickets.php',
+    '/{pslug}/tickets' => 'routes/tickets/index.php',
     '/{pslug}/tickets/new' => 'routes/tickets/new.php',
     '/{pslug}/tickets/{id}' => 'routes/tickets/show.php'
 ];
