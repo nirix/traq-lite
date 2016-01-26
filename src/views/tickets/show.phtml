@@ -19,7 +19,7 @@
                     <dd><a href="<?=projectUrl("/roadmap/{$ticket['milestone_slug']}")?>"><?=$ticket['milestone_name']?></a></dd>
 
                     <dt><?=t('component')?></dt>
-                    <dd><?=$ticket['component_name']?></dd>
+                    <dd><?=$ticket['component_name'] ?: '-'?></dd>
                 </dl>
             </div>
 
