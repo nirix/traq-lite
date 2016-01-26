@@ -40,7 +40,10 @@ main {
   }
 
   main {
-    border-radius: 0 0 5px 5px;
+    &,
+    .form-actions {
+      border-radius: 0 0 5px 5px;
+    }
   }
 }
 
