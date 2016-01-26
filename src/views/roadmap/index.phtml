@@ -1,0 +1,12 @@
+<div class="roadmap content container-fluid">
+    <h1 class="page-header"><?=t('roadmap')?></h1>
+
+    <ul id="milestones">
+    <?php foreach ($milestones as $milestone) : ?>
+        <li>
+            <h2><a href="<?=projectUrl("/roadmap/{$milestone['slug']}")?>"><?=$milestone['name']?></a></h2>
+            <?=markdown($milestone['description'])?>
+        </li>
+    <?php endforeach ?>
+    </ul>
+</div>

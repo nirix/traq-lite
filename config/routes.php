@@ -42,6 +42,11 @@ return [
     // -------------------------------------------------------------------------
     // Projects
     '/{pslug}' => 'routes/project.php',
+
+    // Roadmap
+    '/{pslug}/roadmap' => 'routes/roadmap.php',
+
+    // Tickets
     '/{pslug}/tickets' => 'routes/tickets/index.php',
     '/{pslug}/tickets/new' => 'routes/tickets/new.php',
     '/{pslug}/tickets/{id}' => 'routes/tickets/show.php'
