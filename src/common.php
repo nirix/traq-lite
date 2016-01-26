@@ -244,6 +244,24 @@ function e($string)
     return htmlspecialchars($string);
 }
 
+/**
+ * Markdown rendering.
+ *
+ * @param string $string
+ *
+ * @return string
+ */
+function markdown($string)
+{
+    static $parser;
+
+    if (!$parser) {
+        $parser = new ParsedownExtra;
+    }
+
+    return $parser->parse($string);
+}
+
 // -----------------------------------------------------------------------------
 // Misc.
 
