@@ -1,18 +1,30 @@
 <div class="tickets content container-fluid">
     <h1 class="page-header"><?=t('tickets')?></h1>
-
-    <table class="table table-bordered table-striped table-hover">
-        <thead>
-            <th><?=t('id')?></th>
-            <th><?=t('summary')?></th>
-        </thead>
-        <tbody>
-        <?php foreach ($tickets as $ticket) : ?>
-            <tr>
-                <td><?=$ticket['ticket_id']?></td>
-                <td><a href="<?=projectUrl('/tickets/' . $ticket['ticket_id'])?>"><?=e($ticket['summary'])?></a></td>
-            </tr>
-        <?php endforeach ?>
-        </tbody>
-    </table>
+</div>
+<table class="table table-bordersed table-striped table-hover">
+    <thead>
+        <th><?=t('id')?></th>
+        <th><?=t('summary')?></th>
+        <th><?=t('reported_by')?></th>
+        <th><?=t('status')?></th>
+        <th><?=t('type')?></th>
+        <th><?=t('milestone')?></th>
+        <th><?=t('component')?></th>
+    </thead>
+    <tbody>
+    <?php foreach ($tickets as $ticket) : ?>
+        <tr>
+            <td><?=$ticket['ticket_id']?></td>
+            <td><a href="<?=projectUrl('/tickets/' . $ticket['ticket_id'])?>"><?=e($ticket['summary'])?></a></td>
+            <td><a href="<?=baseUrl("/users/{$ticket['user_id']}")?>"><?=$ticket['user_username']?></a></td>
+            <td><?=$ticket['status_name']?></td>
+            <td><?=$ticket['type_name']?></td>
+            <td><a href="<?=projectUrl("/roadmap/{$ticket['milestone_slug']}")?>"><?=$ticket['milestone_name']?></a></td>
+            <td><?=$ticket['component_name']?></td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+<div class="container-fluid">
+    <!-- pagination here -->
 </div>
