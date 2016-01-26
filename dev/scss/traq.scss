@@ -28,11 +28,8 @@ main {
 }
 
 #footer {
-    margin: 20px 0;
+  margin: 10px 0;
 }
-
-@import 'traq/header.scss';
-@import 'framework/framework.scss';
 
 #wrapper {
   margin-top: 25px;
@@ -46,3 +43,17 @@ main {
     border-radius: 0 0 5px 5px;
   }
 }
+
+.section-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+h2.section-header {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+@import 'framework/framework';
+@import 'traq/header';
+@import 'traq/ticket';

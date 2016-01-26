@@ -1,4 +1,38 @@
-<div class="ticket container-fluid">
-    <h1 class="page-header"><?=e($ticket['summary'])?></h1>
-    <?=e($ticket['body'])?>
+<div class="ticket">
+    <div class="ticket-info container-fluid content">
+        <h1 class="page-header"><?=e($ticket['summary'])?></h1>
+
+        <div class="row">
+            <div class="col-md-3 ticket-properties">
+                <h2 class="sr-only"><?=t('ticket_properties')?></h2>
+                <dl>
+                    <dt><?=t('reported_by')?></dt>
+                    <dd><a href="<?=baseUrl("/users/{$ticket['user_id']}")?>"><?=$ticket['user_username']?></a></dd>
+
+                    <dt><?=t('status')?></dt>
+                    <dd><?=$ticket['status_name']?></dd>
+
+                    <dt><?=t('type')?></dt>
+                    <dd><?=$ticket['type_name']?></dd>
+
+                    <dt><?=t('milestone')?></dt>
+                    <dd><a href="<?=projectUrl("/roadmap/{$ticket['milestone_slug']}")?>"><?=$ticket['milestone_name']?></a></dd>
+
+                    <dt><?=t('component')?></dt>
+                    <dd><?=$ticket['component_name']?></dd>
+                </dl>
+            </div>
+
+            <div class="col-md-9 ticket-description">
+                <h3><?=t('description')?></h3>
+                <?=e($ticket['body'])?>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid content">
+        <section id="update-ticket">
+            <h2 class="section-header"><?=t('update_ticket')?></h2>
+        </section>
+    </div>
 </div>
