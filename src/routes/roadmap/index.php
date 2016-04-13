@@ -14,4 +14,4 @@ $milestones = db()->prepare('
     ORDER BY display_order
 ');
 $milestones->execute([currentProject()['id']]);
-return render('roadmap/index.phtml', ['milestones' => $milestones->fetchAll()]);
+return view('roadmap/index.phtml', ['milestones' => $milestones->fetchAll()]);

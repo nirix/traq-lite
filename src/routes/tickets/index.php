@@ -25,4 +25,4 @@ $tickets = db()->prepare('
     WHERE t.project_id = ?
 ');
 $tickets->execute([currentProject()['id']]);
-return render('tickets/index.phtml', ['tickets' => $tickets->fetchAll()]);
+return view('tickets/index.phtml', ['tickets' => $tickets->fetchAll()]);

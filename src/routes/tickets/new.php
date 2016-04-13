@@ -58,4 +58,4 @@ if (Request::$method == 'POST') {
     }
 }
 
-return render('tickets/new.phtml', ['ticket' => $ticket]);
+return view('tickets/new.phtml', ['ticket' => $ticket]);

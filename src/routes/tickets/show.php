@@ -21,4 +21,4 @@ $ticket = db()->prepare('
 $ticket->bindValue(1, Request::$properties->get('id'), PDO::PARAM_INT);
 $ticket->bindValue(2, currentProject()['id'], PDO::PARAM_INT);
 $ticket->execute();
-return render('tickets/show.phtml', ['ticket' => $ticket->fetch()]);
+return view('tickets/show.phtml', ['ticket' => $ticket->fetch()]);
