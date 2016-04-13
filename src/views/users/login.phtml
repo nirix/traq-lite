@@ -5,7 +5,7 @@
 
     <form action="<?=baseUrl('/login')?>" method="post" class="form-horizontal col-md-6 col-md-offset-3">
         <?php if (isset($error) && $error) : ?>
-        <div class="alert danger">
+        <div class="alert alert-danger">
             <?=t('errors.invalid_username_or_password')?>
         </div>
         <?php endif ?>
