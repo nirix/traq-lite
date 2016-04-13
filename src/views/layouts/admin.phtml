@@ -14,7 +14,7 @@
     <div class="page-with-sidebar">
         <?=view('layouts/admin/_sidebar.phtml')?>
         <main>
-            <?=$content?>
+            <?=$this->getSection('content')?>
         </main>
         <footer id="footer">
             <?php if ($_ENV['environment'] === 'development') : ?>
