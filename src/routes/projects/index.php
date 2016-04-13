@@ -9,4 +9,4 @@
 
 $projects = db()->query('SELECT name, slug, description FROM '.PREFIX.'projects');
 $projects->execute();
-return render('projects/index.phtml', ['projects' => $projects->fetchAll()]);
+return view('projects/index.phtml', ['projects' => $projects->fetchAll()]);

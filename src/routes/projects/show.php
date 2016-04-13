@@ -11,4 +11,4 @@ if (!currentProject()) {
     return show404();
 }
 
-return render('projects/show.phtml', ['project' => currentProject()]);
+return view('projects/show.phtml', ['project' => currentProject()]);

@@ -2,7 +2,7 @@
 Unf\Router::addToken('pslug', '(?<pslug>[^/]+)');
 
 return [
-    '/' => 'routes/index.php',
+    '/' => 'routes/projects/index.php',
 
     // -------------------------------------------------------------------------
     // Users
@@ -41,10 +41,10 @@ return [
 
     // -------------------------------------------------------------------------
     // Projects
-    '/{pslug}' => 'routes/project.php',
+    '/{pslug}' => 'routes/projects/show.php',
 
     // Roadmap
-    '/{pslug}/roadmap' => 'routes/roadmap.php',
+    '/{pslug}/roadmap' => 'routes/roadmap/index.php',
 
     // Tickets
     '/{pslug}/tickets' => 'routes/tickets/index.php',
