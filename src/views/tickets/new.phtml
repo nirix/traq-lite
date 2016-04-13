@@ -1,3 +1,6 @@
+<?php $this->extend('layouts/default.phtml'); ?>
+
+<?php $this->startSection('content'); ?>
 <form action="<?=projectUrl('/tickets/new')?>" method="post" class="tickets new form-horizontal">
     <div class="content container-fluid p-b-0">
         <h1 class="page-header"><?=t('new_ticket')?></h1>
@@ -84,3 +87,4 @@
         <button type="submit" class="btn btn-success"><?=t('create')?></button>
     </div>
 </form>
+<?php $this->endSection(); ?>

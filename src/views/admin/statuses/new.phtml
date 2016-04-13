@@ -1,3 +1,6 @@
+<?php $this->extend('layouts/admin.phtml'); ?>
+
+<?php $this->startSection('content'); ?>
 <div class="statuses new container-fluid">
     <h1 class="page-header"><?=t('new_status')?></h1>
 
@@ -8,3 +11,4 @@
         </div>
     </form>
 </div>
+<?php $this->endSection(); ?>

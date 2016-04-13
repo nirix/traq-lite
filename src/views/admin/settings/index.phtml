@@ -1,3 +1,6 @@
+<?php $this->extend('layouts/admin.phtml'); ?>
+
+<?php $this->startSection('content'); ?>
 <div class="admin settings container-fluid">
     <h1 class="page-header"><?=t('settings')?></h1>
 
@@ -18,3 +21,4 @@
         </div>
     </form>
 </div>
+<?php $this->endSection(); ?>

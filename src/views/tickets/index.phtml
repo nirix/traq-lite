@@ -1,3 +1,6 @@
+<?php $this->extend('layouts/default.phtml'); ?>
+
+<?php $this->startSection('content'); ?>
 <div class="tickets content p-b-0 container-fluid">
     <h1 class="page-header"><?=t('tickets')?></h1>
 </div>
@@ -28,3 +31,4 @@
 <div class="container-fluid content p-t-0">
     <!-- pagination here -->
 </div>
+<?php $this->endSection(); ?>
