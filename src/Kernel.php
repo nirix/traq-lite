@@ -95,7 +95,8 @@ class Kernel extends AppKernel
         Request::init();
 
         if (Request::seg(0) == 'admin' && !currentUser()->isAdmin()) {
-            return UnfKernel::process(show403());
+            echo show403();
+            exit;
         } else {
             return parent::run();
         }
