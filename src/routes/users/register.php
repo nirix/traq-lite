@@ -19,10 +19,11 @@ if (Request::$method == 'POST') {
     if ($user->validate()) {
         $query = db()->prepare('
             INSERT INTO '.PREFIX.'users
-            (username, password, email, session_hash, created_at)
-            VALUES(:username, :password, :email, :session_hash, NOW())
+            (name, username, password, email, session_hash, created_at)
+            VALUES(:name, :username, :password, :email, :session_hash, NOW())
         ');
 
+        $query->bindValue(':name', $user['username'], PDO::PARAM_STR);
         $query->bindValue(':username', $user['username'], PDO::PARAM_STR);
         $query->bindValue(':password', password_hash($user['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
         $query->bindValue(':email', $user['email'], PDO::PARAM_STR);
