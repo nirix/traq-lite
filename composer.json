@@ -18,7 +18,8 @@
     },
     "require": {
         "nirix/unframework": "dev-master",
-        "erusev/parsedown-extra": "^0.7.1"
+        "erusev/parsedown-extra": "^0.7.1",
+        "avalon/templating": "dev-master"
     },
     "require-dev": {
         "filp/whoops": "^2.0"

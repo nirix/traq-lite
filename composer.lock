@@ -4,9 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "47a1a38530ae320d64a04a2d9b312d8a",
-    "content-hash": "debd293dedd1f6d8ea47481ff4bd6e82",
+    "hash": "5a499847a2ab51adf1e0b5c30d333383",
+    "content-hash": "d162782fef1a65bf91cffbdebf5696a7",
     "packages": [
+        {
+            "name": "avalon/templating",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalonphp/templating.git",
+                "reference": "347a76edaf42ee8b1a1edbe021ea34dac10e052c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalonphp/templating/zipball/347a76edaf42ee8b1a1edbe021ea34dac10e052c",
+                "reference": "347a76edaf42ee8b1a1edbe021ea34dac10e052c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Avalon\\Templating\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Nirix"
+                }
+            ],
+            "description": "Avalon Templating Component.",
+            "keywords": [
+                "avalon",
+                "framework",
+                "templating"
+            ],
+            "time": "2016-04-09 15:01:05"
+        },
         {
             "name": "erusev/parsedown",
             "version": "1.6.0",
@@ -96,12 +141,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nirix/unframework.git",
-                "reference": "144335651692e5ee584ef7b7067fabcdbf7cbeec"
+                "reference": "7ac0307c3ef4f83362a9292f0b55a7cb20ff4765"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nirix/unframework/zipball/144335651692e5ee584ef7b7067fabcdbf7cbeec",
-                "reference": "144335651692e5ee584ef7b7067fabcdbf7cbeec",
+                "url": "https://api.github.com/repos/nirix/unframework/zipball/7ac0307c3ef4f83362a9292f0b55a7cb20ff4765",
+                "reference": "7ac0307c3ef4f83362a9292f0b55a7cb20ff4765",
                 "shasum": ""
             },
             "require-dev": {
@@ -127,22 +172,22 @@
                 "routing",
                 "templating"
             ],
-            "time": "2016-01-09 14:31:07"
+            "time": "2016-04-13 02:27:29"
         }
     ],
     "packages-dev": [
         {
             "name": "filp/whoops",
-            "version": "2.0.0",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "a327942c50cbd62b25c6fbe08f173031ce25fbff"
+                "reference": "d13505b240a6f580bc75ba591da30299d6cb0eec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/a327942c50cbd62b25c6fbe08f173031ce25fbff",
-                "reference": "a327942c50cbd62b25c6fbe08f173031ce25fbff",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/d13505b240a6f580bc75ba591da30299d6cb0eec",
+                "reference": "d13505b240a6f580bc75ba591da30299d6cb0eec",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +195,8 @@
             },
             "require-dev": {
                 "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "^4.8 || ^5.0"
+                "phpunit/phpunit": "^4.8 || ^5.0",
+                "symfony/var-dumper": "~3.0"
             },
             "suggest": {
                 "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
@@ -188,13 +234,14 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2016-01-06 17:51:21"
+            "time": "2016-04-07 06:16:25"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "nirix/unframework": 20
+        "nirix/unframework": 20,
+        "avalon/templating": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
