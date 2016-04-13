@@ -13,6 +13,8 @@ use PDO;
 use Unf\Kernel as UnfKernel;
 use Unf\AppKernel;
 use Unf\Request;
+use Avalon\Templating\View;
+use Avalon\Templating\Engines\PhpExtended;
 use Traq\Language;
 use Traq\Models\User;
 use Traq\Translations\EnglishAu;
@@ -37,12 +39,7 @@ class Kernel extends AppKernel
 
         class_alias('Unf\\Request', 'Request');
 
-        $dbConfig = $this->config['db'][$this->config['environment']];
-        $GLOBALS['db'] = new PDO($dbConfig['dsn'], $dbConfig['username'], $dbConfig['password']);
-        $GLOBALS['db']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $GLOBALS['db']->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        define('PREFIX', $dbConfig['prefix']);
-        unset($dbConfig);
+        $this->setupDatabaseConnection();
         $this->setupViewEngine();
 
         Language::register('EnglishAu', new EnglishAu);
@@ -74,6 +71,15 @@ class Kernel extends AppKernel
         }
     }
 
+    protected function setupDatabaseConnection()
+    {
+        $dbConfig = $this->config['db'][$this->config['environment']];
+        $GLOBALS['db'] = new PDO($dbConfig['dsn'], $dbConfig['username'], $dbConfig['password']);
+        $GLOBALS['db']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $GLOBALS['db']->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        define('PREFIX', $dbConfig['prefix']);
+        unset($dbConfig);
+    }
 
     protected function setupViewEngine()
     {
