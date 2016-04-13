@@ -18,8 +18,8 @@ if (Request::$method == 'POST') {
         setcookie('traq', $user['session_hash'], time() + (60 * 60 * 24 * 7), '/');
         return redirect('/');
     } else {
-        return render('users/login.phtml', ['error' => true]);
+        return view('users/login.phtml', ['error' => true]);
     }
 } else {
-    return render('users/login.phtml');
+    return view('users/login.phtml');
 }

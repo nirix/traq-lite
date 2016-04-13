@@ -32,8 +32,8 @@ if (Request::$method == 'POST') {
 
         return redirect('/login');
     } else {
-        return render('users/register.phtml', ['user' => $user]);
+        return view('users/register.phtml', ['user' => $user]);
     }
 } else {
-    return render('users/register.phtml', ['user' => new User]);
+    return view('users/register.phtml', ['user' => new User]);
 }

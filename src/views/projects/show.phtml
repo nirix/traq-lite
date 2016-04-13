@@ -1,6 +1,9 @@
-<div class="project content container-fluid">
+<?php $this->extend('layouts/default.phtml'); ?>
+
+<?php $this->startSection('content'); ?><div class="project content container-fluid">
     <h1 class="page-header"><?=$project['name']?></h1>
     <div>
         <?=markdown($project['description'])?>
     </div>
 </div>
+<?php $this->endSection(); ?>
