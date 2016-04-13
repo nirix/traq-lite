@@ -32,8 +32,8 @@ if (Request::$method == 'POST') {
 
         $query = db()->prepare('
             INSERT INTO '.PREFIX.'tickets
-            (ticket_id, summary, body, project_id, user_id, type status_id, milestone_id, component_id, created_at)
-            VALUES (:ticket_id, :summary, :body, :project_id, :user_id, :type :status_id, :milestone_id, :component_id, NOW())
+            (ticket_id, summary, body, project_id, user_id, type_id, status_id, milestone_id, component_id, created_at)
+            VALUES (:ticket_id, :summary, :body, :project_id, :user_id, :type_id, :status_id, :milestone_id, :component_id, NOW())
         ');
 
         $query->bindValue(':ticket_id', $ticket['ticket_id'], PDO::PARAM_INT);
