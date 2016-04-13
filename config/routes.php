@@ -45,6 +45,7 @@ return [
 
     // Roadmap
     '/{pslug}/roadmap' => 'routes/roadmap/index.php',
+    '/{pslug}/roadmap/{slug}' => 'routes/roadmap/show.php',
 
     // Tickets
     '/{pslug}/tickets' => 'routes/tickets/index.php',

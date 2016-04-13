@@ -1,0 +1,9 @@
+<?php $this->extend('layouts/default.phtml'); ?>
+
+<?php $this->startSection('content'); ?><div class="milestone content container-fluid">
+    <h1 class="page-header"><?=$milestone['name']?></h1>
+    <div>
+        <?=markdown($milestone['description'])?>
+    </div>
+</div>
+<?php $this->endSection(); ?>
