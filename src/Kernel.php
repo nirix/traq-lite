@@ -43,6 +43,7 @@ class Kernel extends AppKernel
         $GLOBALS['db']->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         define('PREFIX', $dbConfig['prefix']);
         unset($dbConfig);
+        $this->setupViewEngine();
 
         Language::register('EnglishAu', new EnglishAu);
         Language::setCurrent('EnglishAu');
@@ -71,6 +72,16 @@ class Kernel extends AppKernel
                 $GLOBALS['current_user'] = new User($user);
             }
         }
+    }
+
+
+    protected function setupViewEngine()
+    {
+        $engine = new PhpExtended;
+        $engine->escapeVariables = false;
+
+        View::setEngine($engine);
+        View::addPath($this->path . '/views');
     }
 
     public function run()

@@ -7,8 +7,8 @@
  * Licensed under the BSD 3-Clause license.
  */
 
-use Unf\View;
 use Unf\Request;
+use Avalon\Templating\View;
 use Traq\Language;
 use Traq\Models\Model;
 use Traq\Models\User;
@@ -180,7 +180,7 @@ function errorMessageFor(Model $model, $field)
  */
 function show404()
 {
-    return render('errors/404.phtml');
+    return view('errors/404.phtml');
 }
 
 /**
@@ -188,37 +188,7 @@ function show404()
  */
 function show403()
 {
-    return render('errors/403.phtml');
-}
-
-/**
- * @param string $view
- * @param array  $locals
- *
- * @return string
- */
-function render($view, array $locals = [])
-{
-    $locals = $locals + [
-        '_layout' => 'default.phtml'
-    ];
-
-    return view("layouts/{$locals['_layout']}", ['content' => view($view, $locals)]);
-}
-
-/**
- * @param string $view
- * @param array  $locals
- *
- * @return string
- */
-function renderAdmin($view, array $locals = [])
-{
-    $locals = $locals + [
-        '_layout' => 'admin.phtml'
-    ];
-
-    return render("admin/{$view}", $locals);
+    return view('errors/403.phtml');
 }
 
 /**
