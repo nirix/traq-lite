@@ -90,6 +90,7 @@ class EnglishAu extends Translation
         'confirm.delete_x' => 'Deleting {0} cannot be undone, are you sure?',
 
         // Errors
+        'errors.invalid_username_or_password' => 'Invalid username and/or password',
         'errors.validation.required'  => '{field} is required',
         'errors.validation.minLength' => '{field} must at least {length} characters long',
         'errors.validation.email'     => '{field} is not a valid email address',
