@@ -31,17 +31,22 @@ class Kernel extends AppKernel
 
         $_ENV['environment'] = $this->config['environment'];
 
+        // Setup Whoops if we're in development
         if ($_ENV['environment'] == 'development') {
             $whoops = new \Whoops\Run;
             $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
             $whoops->register();
         }
 
+        // Make the request class a little easier to access.
         class_alias('Unf\\Request', 'Request');
 
+        // Setup database and templating
         $this->setupDatabaseConnection();
         $this->setupViewEngine();
 
+        // Set current language
+        // TODO: allow changing of this via the AdminCP and UserCP
         Language::register('EnglishAu', new EnglishAu);
         Language::setCurrent('EnglishAu');
 
@@ -50,6 +55,9 @@ class Kernel extends AppKernel
         $this->getCurrentUser();
     }
 
+    /**
+     * Get the current user.
+     */
     protected function getCurrentUser()
     {
         if (isset($_COOKIE['traq'])) {
@@ -71,6 +79,9 @@ class Kernel extends AppKernel
         }
     }
 
+    /**
+     * Setup database connection.
+     */
     protected function setupDatabaseConnection()
     {
         $dbConfig = $this->config['db'][$this->config['environment']];
@@ -81,6 +92,9 @@ class Kernel extends AppKernel
         unset($dbConfig);
     }
 
+    /**
+     * Setup Avalon templating to use the extended PHP engine.
+     */
     protected function setupViewEngine()
     {
         $engine = new PhpExtended;
@@ -90,6 +104,9 @@ class Kernel extends AppKernel
         View::addPath($this->path . '/views');
     }
 
+    /**
+     * Overwrite the `run` method to check admin permissions.
+     */
     public function run()
     {
         Request::init();
