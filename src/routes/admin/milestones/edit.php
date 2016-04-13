@@ -57,4 +57,4 @@ if (Request::$method == 'POST') {
     }
 }
 
-return renderAdmin('milestones/edit.phtml', ['milestone' => $milestone]);
+return view('admin/milestones/edit.phtml', ['milestone' => $milestone]);

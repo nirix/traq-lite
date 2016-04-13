@@ -57,4 +57,4 @@ if (Request::$method == 'POST') {
     }
 }
 
-return renderAdmin('projects/edit.phtml', ['project' => $project]);
+return view('admin/projects/edit.phtml', ['project' => $project]);

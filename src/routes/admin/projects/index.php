@@ -10,4 +10,4 @@
 $query = db()->query('SELECT * FROM '.PREFIX.'projects ORDER BY display_order ASC');
 $query->execute();
 
-return renderAdmin('projects/index.phtml', ['projects' => $query->fetchAll()]);
+return view('admin/projects/index.phtml', ['projects' => $query->fetchAll()]);

@@ -14,4 +14,4 @@ $query = db()->query('
 ');
 $query->execute();
 
-return renderAdmin('components/index.phtml', ['components' => $query->fetchAll()]);
+return view('admin/components/index.phtml', ['components' => $query->fetchAll()]);

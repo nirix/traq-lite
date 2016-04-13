@@ -14,4 +14,4 @@ $query = db()->query('
 ');
 $query->execute();
 
-return renderAdmin('milestones/index.phtml', ['milestones' => $query->fetchAll()]);
+return view('admin/milestones/index.phtml', ['milestones' => $query->fetchAll()]);

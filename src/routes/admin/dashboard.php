@@ -7,4 +7,4 @@
  * Licensed under the BSD 3-Clause license.
  */
 
-return renderAdmin('dashboard/index.phtml');
+return view('admin/dashboard/index.phtml');

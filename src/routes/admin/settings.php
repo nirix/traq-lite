@@ -22,4 +22,4 @@ if (Request::$method == 'POST') {
     return redirect('/admin/settings');
 }
 
-return renderAdmin('settings/index.phtml');
+return view('admin/settings/index.phtml');

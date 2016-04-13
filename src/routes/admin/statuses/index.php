@@ -10,4 +10,4 @@
 $query = db()->query('SELECT * FROM '.PREFIX.'statuses ORDER BY name ASC');
 $query->execute();
 
-return renderAdmin('statuses/index.phtml', ['statuses' => $query->fetchAll()]);
+return view('admin/statuses/index.phtml', ['statuses' => $query->fetchAll()]);

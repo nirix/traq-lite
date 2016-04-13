@@ -42,4 +42,4 @@ if (Request::$method == 'POST') {
     }
 }
 
-return renderAdmin('statuses/edit.phtml', ['status' => $status]);
+return view('admin/statuses/edit.phtml', ['status' => $status]);

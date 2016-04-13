@@ -38,4 +38,4 @@ if (Request::$method == 'POST') {
     }
 }
 
-return renderAdmin('types/edit.phtml', ['type' => $type]);
+return view('admin/types/edit.phtml', ['type' => $type]);

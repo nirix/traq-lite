@@ -27,4 +27,4 @@ if (Request::$method == 'POST') {
     }
 }
 
-return renderAdmin('types/new.phtml', ['type' => $type]);
+return view('admin/types/new.phtml', ['type' => $type]);

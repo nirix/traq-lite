@@ -10,4 +10,4 @@
 $query = db()->query('SELECT * FROM '.PREFIX.'types ORDER BY name ASC');
 $query->execute();
 
-return renderAdmin('types/index.phtml', ['types' => $query->fetchAll()]);
+return view('admin/types/index.phtml', ['types' => $query->fetchAll()]);

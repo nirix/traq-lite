@@ -31,4 +31,4 @@ if (Request::$method == 'POST') {
     }
 }
 
-return renderAdmin('statuses/new.phtml', ['status' => $status]);
+return view('admin/statuses/new.phtml', ['status' => $status]);

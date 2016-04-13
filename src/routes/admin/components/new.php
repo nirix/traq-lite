@@ -31,4 +31,4 @@ if (Request::$method == 'POST') {
     }
 }
 
-return renderAdmin('components/new.phtml', ['component' => $component]);
+return view('admin/components/new.phtml', ['component' => $component]);
