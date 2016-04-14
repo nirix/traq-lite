@@ -15,6 +15,7 @@ if (!setting('enable_registration')) {
 
 if (Request::$method == 'POST') {
     $user = new User([
+        'name'     => Request::$post['username'],
         'username' => Request::$post['username'],
         'password' => Request::$post['password'],
         'email'    => Request::$post['email']
@@ -27,7 +28,7 @@ if (Request::$method == 'POST') {
             VALUES(:name, :username, :password, :email, :session_hash, NOW())
         ');
 
-        $query->bindValue(':name', $user['username'], PDO::PARAM_STR);
+        $query->bindValue(':name', $user['name'], PDO::PARAM_STR);
         $query->bindValue(':username', $user['username'], PDO::PARAM_STR);
         $query->bindValue(':password', password_hash($user['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
         $query->bindValue(':email', $user['email'], PDO::PARAM_STR);
