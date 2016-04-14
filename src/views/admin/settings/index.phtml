@@ -16,6 +16,17 @@
             </div>
         </fieldset>
 
+        <fieldset>
+            <legend><?=t('users')?></legend>
+
+            <div class="form-group">
+                <label for="enable_registration" class="control-label col-md-2"><?=t('registration')?></label>
+                <div class="col-md-10">
+                    <label><input type="checkbox" name="settings[enable_registration]" value="1" <?=iif(setting('enable_registration'), 'checked')?>> <?=t('enabled')?></label>
+                </div>
+            </div>
+        </fieldset>
+
         <div class="text-center">
             <button type="submit" class="btn btn-success"><?=t('save')?></button>
         </div>

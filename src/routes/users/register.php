@@ -9,6 +9,10 @@
 
 use Traq\Models\User;
 
+if (!setting('enable_registration')) {
+    return show404();
+}
+
 if (Request::$method == 'POST') {
     $user = new User([
         'username' => Request::$post['username'],

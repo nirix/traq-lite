@@ -28,7 +28,9 @@
                             <li><a href="<?=baseUrl('/logout')?>" title="<?=t('logout')?>" data-placement="bottom"><span class="fa fa-sign-out"></span></a></li>
                         <?php else : ?>
                             <li class="<?=iif(Request::matches('/login'), 'active')?>"><a href="<?=baseUrl('/login')?>"><?=t('login')?></a></li>
-                            <li class="<?=iif(Request::matches('/register'), 'active')?>"><a href="<?=baseUrl('/register')?>"><?=t('register')?></a></li>
+                            <?php if (setting('enable_registration')) : ?>
+                                <li class="<?=iif(Request::matches('/register'), 'active')?>"><a href="<?=baseUrl('/register')?>"><?=t('register')?></a></li>
+                            <?php endif ?>
                         <?php endif ?>
                         </ul>
                     </div>

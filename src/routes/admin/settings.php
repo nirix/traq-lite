@@ -8,9 +8,11 @@
  */
 
 if (Request::$method == 'POST') {
+    $settings = Request::$post->properties['settings'] + ['enable_registration' => 0];
+
     db()->beginTransaction();
 
-    foreach (Request::$post['settings'] as $name => $value) {
+    foreach ($settings as $name => $value) {
         $query = db()->prepare('UPDATE '.PREFIX.'settings SET value = ? WHERE name = ? LIMIT 1');
         $query->bindValue(1, $value);
         $query->bindValue(2, $name);
