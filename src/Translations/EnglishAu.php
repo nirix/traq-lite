@@ -36,9 +36,12 @@ class EnglishAu extends Translation
 
         // Users
         'users'          => 'Users',
+        'new_user'       => 'New User',
+        'edit_user'      => 'Edit User',
         'username'       => 'Username',
         'password'       => 'Password',
         'email'          => 'Email',
+        'group'          => 'Group',
         'create_account' => 'Create Account',
 
         // Projects

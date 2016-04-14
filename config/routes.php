@@ -39,6 +39,11 @@ return [
     '/admin/components/new' => 'routes/admin/components/new.php',
     '/admin/components/{id}/edit' => 'routes/admin/components/edit.php',
 
+    // Users
+    '/admin/users' => 'routes/admin/users/index.php',
+    '/admin/users/new' => 'routes/admin/users/new.php',
+    '/admin/users/{id}/edit' => 'routes/admin/users/edit.php',
+
     // -------------------------------------------------------------------------
     // Projects
     '/{pslug}' => 'routes/projects/show.php',

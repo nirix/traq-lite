@@ -1,0 +1,53 @@
+<div class="form-group <?=iif($user->hasError('name'), 'has-error')?>">
+    <label for="name" class="control-label col-md-2"><?=t('name')?></label>
+    <div class="col-md-10">
+        <input type="text" name="name" id="name" class="form-control" value="<?=$user['name']?>">
+        <?php if ($user->hasError('name')) : ?>
+            <div class="help-block"><?=errorMessageFor($user, 'name')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group <?=iif($user->hasError('username'), 'has-error')?>">
+    <label for="username" class="control-label col-md-2"><?=t('username')?></label>
+    <div class="col-md-10">
+        <input type="text" name="username" id="username" class="form-control" value="<?=$user['username']?>">
+        <?php if ($user->hasError('username')) : ?>
+            <div class="help-block"><?=errorMessageFor($user, 'username')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group <?=iif($user->hasError('password'), 'has-error')?>">
+    <label for="password" class="control-label col-md-2"><?=t('password')?></label>
+    <div class="col-md-10">
+        <input type="password" name="password" id="password" class="form-control">
+        <?php if ($user->hasError('password')) : ?>
+            <div class="help-block"><?=errorMessageFor($user, 'password')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group <?=iif($user->hasError('email'), 'has-error')?>">
+    <label for="email" class="control-label col-md-2"><?=t('email')?></label>
+    <div class="col-md-10">
+        <input type="text" name="email" id="email" class="form-control" value="<?=$user['email']?>">
+        <?php if ($user->hasError('email')) : ?>
+            <div class="help-block"><?=errorMessageFor($user, 'email')?></div>
+        <?php endif ?>
+    </div>
+</div>
+
+<div class="form-group <?=iif($user->hasError('group_id'), 'has-error')?>">
+    <label for="group_id" class="control-label col-md-2"><?=t('group')?></label>
+    <div class="col-md-10">
+        <select name="group_id" id="group_id" class="form-control">
+        <?php foreach (Traq\Models\Group::all() as $group) : ?>
+            <option value="<?=$group['id']?>" <?=iif($group['id'] == $user['group_id'], 'selected')?>><?=$group['name']?></option>
+        <?php endforeach ?>
+        </select>
+        <?php if ($user->hasError('group_id')) : ?>
+            <div class="help-block"><?=errorMessageFor($user, 'group_id')?></div>
+        <?php endif ?>
+    </div>
+</div>

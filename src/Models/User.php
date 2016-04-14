@@ -12,6 +12,7 @@ namespace Traq\Models;
 class User extends Model
 {
     protected $validations = [
+        'name'     => ['required'],
         'username' => ['required', 'minLength' => 4],
         'password' => ['required', 'minLength' => 6],
         'email'    => ['required', 'email']
